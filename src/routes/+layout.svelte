@@ -308,7 +308,7 @@
 			.stepper-container {
 				position: absolute;
 				top: 8%; /* Move it slightly higher */
-				right: 10%; /* Align it to the right side of the page */
+				right: 5%; /* Move it further to the right side of the page */
 				z-index: 10; /* Ensure it stays on top of other elements */
 			}
 
@@ -365,7 +365,10 @@
 			© {time.getFullYear()} Neko-CLI. All rights reserved. ❤️ Time ({time
 				.getHours()
 				.toString()
-				.padStart(2, '0')}h:{time.getMinutes().toString().padStart(2, '0')}m:{time.getSeconds().toString().padStart(2, '0')}s) {timezone}
+				.padStart(2, '0')}h:{time.getMinutes().toString().padStart(2, '0')}m:{time
+				.getSeconds()
+				.toString()
+				.padStart(2, '0')}s) {timezone}
 		</p>
 	</footer>
 
