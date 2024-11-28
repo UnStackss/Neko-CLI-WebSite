@@ -118,11 +118,8 @@
 >
 	<header class="bg-dark-800 py-4 shadow-md">
 		<div class="container mx-auto flex justify-between items-center">
-			<a href="/" class="flex items-center gap-2">
-				<!-- Logo Neko-CLI più grande -->
-				<a href="/"
-					><img src="https://i.imgur.com/EjscrL8.png" alt="Neko-CLI Logo" class="w-12 h-12" /></a
-				>
+			<a href="/" class="flex items-center gap-2 flex-shrink-0">
+				<img src="https://i.imgur.com/EjscrL8.png" alt="Neko-CLI Logo" class="w-12 h-12" />
 				<span class="text-2xl font-bold text-primary-500">Neko-CLI</span>
 			</a>
 			<nav class="flex gap-6">
@@ -154,13 +151,12 @@
 						xml:space="preserve"
 					>
 						<g>
-							<polygon points="28.626,205.785 28.626,334.199 304.937,512 304.937,383.552 "
+							<polygon points="28.626,205.785 28.626,334.199 304.937,512 304.937,383.552"></polygon>
+							<polygon points="335.307,468.724 335.307,509.664 478.927,354.511 478.927,313.616"
 							></polygon>
-							<polygon points="335.307,468.724 335.307,509.664 478.927,354.511 478.927,313.616 "
+							<polygon points="335.307,383.238 335.307,424.025 478.927,268.916 478.927,228.064"
 							></polygon>
-							<polygon points="335.307,383.238 335.307,424.025 478.927,268.916 478.927,228.064 "
-							></polygon>
-							<polygon points="205.903,0 41.297,177.826 318.803,356.361 483.374,178.548 "></polygon>
+							<polygon points="205.903,0 41.297,177.826 318.803,356.361 483.374,178.548"></polygon>
 						</g>
 					</svg>
 				</button>
