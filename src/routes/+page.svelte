@@ -160,13 +160,72 @@
 <section class="mt-6 text-center">
 	<h2 class="text-xl font-bold text-primary-400 mb-4">Our Sponsors</h2>
 	<div class="flex flex-wrap justify-center gap-8">
-		<!-- Sponsor 1 -->
 		<div class="flex flex-col items-center max-w-xs">
 			<h3 class="text-sm text-primary-500 font-semibold mb-2">DBD Team</h3>
 			<a href="https://discord.gg/TrcRRzAtNQ" target="_blank" class="inline-block">
 				<img
 					src="https://i.imgur.com/ki2Qpld.png"
 					alt="DBD Team"
+					class="hover:opacity-80 transition-opacity duration-300 w-20 h-auto"
+				/>
+			</a>
+		</div>
+		<div class="flex flex-col items-center max-w-xs">
+			<h3 class="text-sm text-primary-500 font-semibold mb-2">BIT.DEV</h3>
+			<a href="https://bit.dev/" target="_blank" class="inline-block">
+				<img
+					src="https://i.imgur.com/p7np28O.png"
+					alt="BIT.DEV"
+					class="hover:opacity-80 transition-opacity duration-300 w-20 h-auto"
+				/>
+			</a>
+		</div>
+		<div class="flex flex-col items-center max-w-xs">
+			<h3 class="text-sm text-primary-500 font-semibold mb-2">SANITY.IO</h3>
+			<a href="https://www.sanity.io/" target="_blank" class="inline-block">
+				<img
+					src="https://i.imgur.com/7cHxAb6.png"
+					alt="SANITY.IO"
+					class="hover:opacity-80 transition-opacity duration-300 w-20 h-auto"
+				/>
+			</a>
+		</div>
+		<div class="flex flex-col items-center max-w-xs">
+			<h3 class="text-sm text-primary-500 font-semibold mb-2">DISCORD</h3>
+			<a href="https://discord.com/" target="_blank" class="inline-block">
+				<img
+					src="https://i.imgur.com/0ajwXst.png"
+					alt="DISCORD"
+					class="hover:opacity-80 transition-opacity duration-300 w-20 h-auto"
+				/>
+			</a>
+		</div>
+		<div class="flex flex-col items-center max-w-xs">
+			<h3 class="text-sm text-primary-500 font-semibold mb-2">VITE</h3>
+			<a href="https://vite.dev/" target="_blank" class="inline-block">
+				<img
+					src="https://i.imgur.com/5EgKxHi.png"
+					alt="VITE"
+					class="hover:opacity-80 transition-opacity duration-300 w-20 h-auto"
+				/>
+			</a>
+		</div>
+		<div class="flex flex-col items-center max-w-xs">
+			<h3 class="text-sm text-primary-500 font-semibold mb-2">CODERABBIT</h3>
+			<a href="https://www.coderabbit.ai/" target="_blank" class="inline-block">
+				<img
+					src="https://i.imgur.com/2Ut1vNt.png"
+					alt="CODERABBIT"
+					class="hover:opacity-80 transition-opacity duration-300 w-20 h-auto"
+				/>
+			</a>
+		</div>
+		<div class="flex flex-col items-center max-w-xs">
+			<h3 class="text-sm text-primary-500 font-semibold mb-2">INTEL</h3>
+			<a href="https://www.intel.com/" target="_blank" class="inline-block">
+				<img
+					src="https://i.imgur.com/bDQQpZq.png"
+					alt="INTEL"
 					class="hover:opacity-80 transition-opacity duration-300 w-20 h-auto"
 				/>
 			</a>
