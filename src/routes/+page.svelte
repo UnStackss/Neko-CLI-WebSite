@@ -65,20 +65,30 @@
 	}
 </script>
 
+<Toast
+	position="bl"
+	buttonDismissLabel="❌"
+	buttonDismiss="variant-filled-[#111827] rounded-full"
+/>
+
 <!-- Welcome Section -->
-<section class="text-center mb-4">
-	<h1 class="text-2xl font-extrabold text-primary-500 mb-2">Welcome to Neko-CLI PackageManager</h1>
-	<p class="text-md text-gray-400 mb-3">
+<section class="text-center mb-4" style="user-select: none;">
+	<h1 class="text-2xl font-extrabold text-primary-500 mb-2" style="user-select: none;">
+		Welcome to Neko-CLI PackageManager
+	</h1>
+	<p class="text-md text-gray-400 mb-3" style="user-select: none;">
 		The ultimate CLI for modern developers, easy to install and use.
 	</p>
-	<div>
+	<div style="user-select: none;">
 		<a
+			style="user-select: none;"
 			href="https://nekocli.unstackss.dev/"
 			class="mt-2 inline-block px-6 py-3 bg-transparent text-primary-500 border-2 border-primary-500 rounded-full hover:bg-primary-500 hover:text-white transition-colors duration-300 mr-4"
 		>
 			Learn More
 		</a>
 		<a
+			style="user-select: none;"
 			href="https://github.com/UnStackss/Neko-CLI/releases/download/0.0.1/NekoCLISetup.exe"
 			class="mt-2 inline-block px-6 py-3 bg-primary-500 text-white border-2 border-primary-500 rounded-full transition-all duration-300 hover:bg-primary-600 hover:border-primary-600 hover:text-white-400 hover:shadow-lg"
 		>
@@ -88,7 +98,7 @@
 </section>
 
 <!-- Installation Commands Section (Compact) -->
-<section class="my-4 p-4 text-center rounded-lg">
+<section class="my-4 p-4 text-center rounded-lg" style="user-select: none;">
 	<h2 class="text-xl font-bold text-primary-400 mb-3">Install Neko-CLI by line</h2>
 	<div class="flex justify-center items-center">
 		<div
@@ -114,7 +124,10 @@
 </section>
 
 <!-- Features Section -->
-<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+<section
+	class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6"
+	style="user-select: none;"
+>
 	<div
 		class="card p-4 rounded-lg shadow-lg bg-dark-700 hover:bg-dark-600 transition-all duration-300"
 	>
@@ -157,7 +170,7 @@
 </section>
 
 <!-- Sponsors Section -->
-<section class="mt-6 text-center">
+<section class="mt-6 text-center" style="user-select: none;">
 	<h2 class="text-xl font-bold text-primary-400 mb-4">Our Sponsors</h2>
 	<div class="flex flex-wrap justify-center gap-8">
 		<div class="flex flex-col items-center max-w-xs">
@@ -233,8 +246,8 @@
 	</div>
 </section>
 
-<Toast
-	position="bl"
-	buttonDismissLabel="❌"
-	buttonDismiss="variant-filled-[#111827] rounded-full"
-/>
+<style>
+	* {
+		user-select: none;
+	}
+</style>

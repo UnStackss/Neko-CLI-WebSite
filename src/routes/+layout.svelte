@@ -3,7 +3,7 @@
 	import '../app.postcss'; // File CSS per il tema scuro
 	import hljs from 'highlight.js/lib/core';
 	import 'highlight.js/styles/github-dark.css'; // Tema per codice
-	import { storeHighlightJs } from '@skeletonlabs/skeleton';
+	import { storeHighlightJs, ProgressBar } from '@skeletonlabs/skeleton';
 	import xml from 'highlight.js/lib/languages/xml';
 	import css from 'highlight.js/lib/languages/css';
 	import javascript from 'highlight.js/lib/languages/javascript';
@@ -110,312 +110,547 @@
 	});
 
 	let lockedState = true;
+
+	let progress = 0; // La variabile per la percentuale di progresso
+	let isLoading = true; // Stato del caricamento
+
+	onMount(() => {
+		// Incremento più rapido per il caricamento
+		const interval = setInterval(() => {
+			progress += 20; // Incrementa di 20 invece di 10
+			if (progress >= 120) {
+				progress = 120; // Assicura che non superi il 100%
+				isLoading = false; // Disattiva il caricamento
+				clearInterval(interval); // Ferma l'incremento
+			}
+		}, 170); // Riduci il tempo di aggiornamento a 150ms
+	});
 </script>
+
+{#if isLoading}
+	<div class="progress-container">
+		<ProgressBar
+			value={progress}
+			height="h-2"
+			rounded="rounded-lg"
+			track="#111827"
+			meter="bg-[#3b82f6]"
+		/>
+	</div>
+	<div class="loading-overlay">
+		<span class="loading-text">Loading...</span>
+	</div>
+{/if}
 
 <div
 	class="min-h-screen flex flex-col bg-dark-900 text-white"
-	style="font-family: 'Inter', sans-serif; color: rgb(var(--color-text-primary));"
+	style="font-family: 'Roboto', sans-serif; color: rgb(var(--color-text-primary));"
 >
-	<header class="bg-dark-800 py-4 shadow-md">
-		<div class="container mx-auto flex justify-between items-center">
-			<a href="/" class="flex items-center gap-2 flex-shrink-0">
-				<img src="https://i.imgur.com/EjscrL8.png" alt="Neko-CLI Logo" class="w-12 h-12" />
-				<span class="text-2xl font-bold text-primary-500">Neko-CLI</span>
-			</a>
-			<nav class="flex gap-6">
-				<button
-					type="button"
-					class="bg-transparent text-white hover:bg-[#1f2937] rounded-full px-6 py-3 flex items-center gap-2 transition-all"
-					onclick="window.location.href='/'"
-				>
-					Home
-					<svg width="16" height="16" fill="currentColor" class="ml-2" viewBox="0 0 16 16">
-						<path d="M8 3.293l6 6V14h-4v-4H6v4H2V9.293l6-6z"></path>
-					</svg>
-				</button>
-
-				<button
-					class="bg-transparent text-white hover:bg-[#1f2937] rounded-full px-6 py-3 flex items-center gap-2 transition-all"
-					onclick="window.location.href='https://nekocli.unstackss.dev/'"
-				>
-					Docs
-					<svg
-						fill="white"
-						height="16px"
-						width="16px"
-						version="1.1"
-						id="Layer_1"
-						xmlns="http://www.w3.org/2000/svg"
-						xmlns:xlink="http://www.w3.org/1999/xlink"
-						viewBox="0 0 512 512"
-						xml:space="preserve"
+	<div class={isLoading ? 'blurred' : ''}>
+		<header class="bg-dark-800 py-4 shadow-md">
+			<div class="container mx-auto flex justify-between items-center">
+				<a href="/" class="flex items-center gap-2 flex-shrink-0">
+					<img src="https://i.imgur.com/EjscrL8.png" alt="Neko-CLI Logo" class="w-12 h-12" />
+					<span class="text-2xl font-bold text-primary-500">Neko-CLI</span>
+				</a>
+				<nav class="flex gap-6">
+					<button
+						type="button"
+						class="bg-transparent text-white hover:bg-[#1f2937] rounded-full px-6 py-3 flex items-center gap-2 transition-all"
+						onclick="window.location.href='/'"
 					>
-						<g>
-							<polygon points="28.626,205.785 28.626,334.199 304.937,512 304.937,383.552"></polygon>
-							<polygon points="335.307,468.724 335.307,509.664 478.927,354.511 478.927,313.616"
-							></polygon>
-							<polygon points="335.307,383.238 335.307,424.025 478.927,268.916 478.927,228.064"
-							></polygon>
-							<polygon points="205.903,0 41.297,177.826 318.803,356.361 483.374,178.548"></polygon>
-						</g>
-					</svg>
-				</button>
+						Home
+						<svg width="16" height="16" fill="currentColor" class="ml-2" viewBox="0 0 16 16">
+							<path d="M8 3.293l6 6V14h-4v-4H6v4H2V9.293l6-6z"></path>
+						</svg>
+					</button>
 
-				<button
-					type="button"
-					class="bg-transparent text-white hover:bg-[#1f2937] rounded-full px-6 py-3 flex items-center gap-2 transition-all"
-					onclick="window.open('https://github.com/UnStackss/Neko-CLI', '_blank')"
-				>
-					GitHub
-					<svg
-						width="13.5"
-						height="13.5"
-						aria-hidden="true"
-						viewBox="0 0 24 24"
-						class="ml-2"
-						style="max-width: 100%; height: auto;"
+					<button
+						class="bg-transparent text-white hover:bg-[#1f2937] rounded-full px-6 py-3 flex items-center gap-2 transition-all"
+						onclick="window.location.href='https://nekocli.unstackss.dev/'"
 					>
-						<path
-							fill="currentColor"
-							d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"
-						></path>
-					</svg>
-				</button>
-
-				<button
-					type="button"
-					class="bg-transparent text-white hover:bg-[#1f2937] rounded-full px-6 py-3 flex items-center gap-2 transition-all"
-					onclick="window.open('https://www.paypal.com/paypalme/UnStackss?country.x=IT&locale.x=en_US', '_blank')"
-				>
-					Donate
-					<div class="heart-icon">
+						Docs
 						<svg
-							width="24px"
-							height="24px"
-							viewBox="0 0 50 50"
+							fill="white"
+							height="16px"
+							width="16px"
+							version="1.1"
+							id="Layer_1"
 							xmlns="http://www.w3.org/2000/svg"
-							class="heart"
+							xmlns:xlink="http://www.w3.org/1999/xlink"
+							viewBox="0 0 512 512"
+							xml:space="preserve"
+						>
+							<g>
+								<polygon points="28.626,205.785 28.626,334.199 304.937,512 304.937,383.552"
+								></polygon>
+								<polygon points="335.307,468.724 335.307,509.664 478.927,354.511 478.927,313.616"
+								></polygon>
+								<polygon points="335.307,383.238 335.307,424.025 478.927,268.916 478.927,228.064"
+								></polygon>
+								<polygon points="205.903,0 41.297,177.826 318.803,356.361 483.374,178.548"
+								></polygon>
+							</g>
+						</svg>
+					</button>
+
+					<button
+						type="button"
+						class="bg-transparent text-white hover:bg-[#1f2937] rounded-full px-6 py-3 flex items-center gap-2 transition-all"
+						onclick="window.open('https://github.com/UnStackss/Neko-CLI', '_blank')"
+					>
+						GitHub
+						<svg
+							width="13.5"
+							height="13.5"
+							aria-hidden="true"
+							viewBox="0 0 24 24"
+							class="ml-2"
+							style="max-width: 100%; height: auto;"
 						>
 							<path
-								d="M25 39.7l-.6-.5C11.5 28.7 8 25 8 19c0-5 4-9 9-9 4.1 0 6.4 2.3 8 4.1 1.6-1.8 3.9-4.1 8-4.1 5 0 9 4 9 9 0 6-3.5 9.7-16.4 20.2l-.6.5zM17 12c-3.9 0-7 3.1-7 7 0 5.1 3.2 8.5 15 18.1 11.8-9.6 15-13 15-18.1 0-3.9-3.1-7-7-7-3.5 0-5.4 2.1-6.9 3.8L25 17.1l-1.1-1.3C22.4 14.1 20.5 12 17 12z"
-								fill="white"
-							/>
+								fill="currentColor"
+								d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"
+							></path>
 						</svg>
-					</div>
-				</button>
-			</nav>
-		</div>
-	</header>
+					</button>
 
-	<main class="container mx-auto py-8 flex-grow relative">
-		<slot />
-
-		<div class="stepper-container">
-			<Stepper
-				buttonCompleteLabel="Go Back"
-				buttonCompleteType="reset"
-				badge
-				active
-				stepTerm="Installation Mode"
-			>
-				<Step>
-					<svelte:fragment slot="header">Neko-CLI Installation with npm</svelte:fragment>
-					<div style="font-size: 0.75rem;">
-						<p>Click 📋NPM to copy the command, then run it in your terminal:</p>
-						<!-- svelte-ignore a11y-missing-attribute -->
-						<pre><code>> npm i -g neko-cli</code> <code
-								>Enter <img
-									src="https://img.icons8.com/offices/30/enter-key.png"
-									style="height: 12px; vertical-align: middle; margin-left: 6px; display: inline-block;"
-								/></code
-							></pre>
-						<p>To verify, run:</p>
-						<!-- svelte-ignore a11y-missing-attribute -->
-						<pre><code>> meow help</code> <code
-								>Enter <img
-									src="https://img.icons8.com/offices/30/enter-key.png"
-									style="height: 12px; vertical-align: middle; margin-left: 6px; display: inline-block;"
-								/></code
-							></pre>
-					</div>
-				</Step>
-				<Step locked={lockedState}>
-					<svelte:fragment slot="header">Neko-CLI Installation with yarn</svelte:fragment>
-					<!-- svelte-ignore a11y-missing-attribute -->
-					<div style="font-size: 0.75rem;">
-						<p>Click 📋YARN to copy the command, then run it in your terminal:</p>
-						<!-- svelte-ignore a11y-missing-attribute -->
-						<pre><code>> yarn global add neko-cli</code> <code
-								>Enter <img
-									src="https://img.icons8.com/offices/30/enter-key.png"
-									style="height: 12px; vertical-align: middle; margin-left: 6px; display: inline-block;"
-								/></code
-							></pre>
-						<p>To verify, run:</p>
-						<pre><code>> meow help</code> <code
-								>Enter <img
-									src="https://img.icons8.com/offices/30/enter-key.png"
-									style="height: 12px; vertical-align: middle; margin-left: 6px; display: inline-block;"
-								/></code
-							></pre>
-					</div>
-				</Step>
-			</Stepper>
-		</div>
-
-		<div class="absolute" style="top: 10%; left: 10%; transform: translate(-10%, -10%);">
-			<h5 class="text-3xl font-bold mb-8" style="color: rgb(59, 130, 246); margin-left: 20%;">
-				downloads
-			</h5>
-
-			<div class="flex items-center gap-12">
-				<!-- Stats Section -->
-				<div class="flex flex-col items-start">
-					<p class="text-lg mb-2">
-						Weekly:
-						<span class="font-bold" style="color: rgb(59, 130, 246);"
-							>{formatNumber(weeklyDownloads)}</span
-						>
-					</p>
-					<p class="text-lg mb-2">
-						Monthly:
-						<span class="font-bold" style="color: rgb(59, 130, 246);"
-							>{formatNumber(monthlyDownloads)}</span
-						>
-					</p>
-					<p class="text-lg">
-						Yearly:
-						<span class="font-bold" style="color: rgb(59, 130, 246);"
-							>{formatNumber(yearlyDownloads)}</span
-						>
-					</p>
-				</div>
-
-				<!-- Chart Section -->
-				<ConicGradient stops={conicStops} legend>
-					<span slot="caption" class="text-sm" style="color: rgb(59, 130, 246);"
-						>Download Distribution</span
+					<button
+						type="button"
+						class="bg-transparent text-white hover:bg-[#1f2937] rounded-full px-6 py-3 flex items-center gap-2 transition-all"
+						onclick="window.open('https://www.paypal.com/paypalme/UnStackss?country.x=IT&locale.x=en_US', '_blank')"
 					>
-				</ConicGradient>
+						Donate
+						<div class="heart-icon">
+							<svg
+								width="24px"
+								height="24px"
+								viewBox="0 0 50 50"
+								xmlns="http://www.w3.org/2000/svg"
+								class="heart"
+							>
+								<path
+									d="M25 39.7l-.6-.5C11.5 28.7 8 25 8 19c0-5 4-9 9-9 4.1 0 6.4 2.3 8 4.1 1.6-1.8 3.9-4.1 8-4.1 5 0 9 4 9 9 0 6-3.5 9.7-16.4 20.2l-.6.5zM17 12c-3.9 0-7 3.1-7 7 0 5.1 3.2 8.5 15 18.1 11.8-9.6 15-13 15-18.1 0-3.9-3.1-7-7-7-3.5 0-5.4 2.1-6.9 3.8L25 17.1l-1.1-1.3C22.4 14.1 20.5 12 17 12z"
+									fill="white"
+								/>
+							</svg>
+						</div>
+					</button>
+				</nav>
 			</div>
-		</div>
+		</header>
+
+		<main class="container mx-auto py-8 flex-grow relative">
+			<slot />
+
+			<div class="stepper-container">
+				<Stepper
+					buttonCompleteLabel="Nothing to do 🤧"
+					buttonCompleteType="reset"
+					badge
+					active
+					stepTerm="Installation Mode"
+				>
+					<Step>
+						<svelte:fragment slot="header">Neko-CLI Installation with npm</svelte:fragment>
+						<div style="font-size: 0.75rem;">
+							<p>Click 📋NPM to copy the command, then run it in your terminal:</p>
+							<!-- svelte-ignore a11y-missing-attribute -->
+							<pre><code>> npm i -g neko-cli</code> <code
+									>Enter <img
+										src="https://img.icons8.com/offices/30/enter-key.png"
+										style="height: 12px; vertical-align: middle; margin-left: 6px; display: inline-block;"
+									/></code
+								></pre>
+							<p>To verify, run:</p>
+							<!-- svelte-ignore a11y-missing-attribute -->
+							<pre><code>> meow help</code> <code
+									>Enter <img
+										src="https://img.icons8.com/offices/30/enter-key.png"
+										style="height: 12px; vertical-align: middle; margin-left: 6px; display: inline-block;"
+									/></code
+								></pre>
+						</div>
+					</Step>
+					<Step locked={lockedState}>
+						<svelte:fragment slot="header">Neko-CLI Installation with yarn</svelte:fragment>
+						<!-- svelte-ignore a11y-missing-attribute -->
+						<div style="font-size: 0.75rem;">
+							<p>Click 📋YARN to copy the command, then run it in your terminal:</p>
+							<!-- svelte-ignore a11y-missing-attribute -->
+							<pre><code>> yarn global add neko-cli</code> <code
+									>Enter <img
+										src="https://img.icons8.com/offices/30/enter-key.png"
+										style="height: 12px; vertical-align: middle; margin-left: 6px; display: inline-block;"
+									/></code
+								></pre>
+							<p>To verify, run:</p>
+							<pre><code>> meow help</code> <code
+									>Enter <img
+										src="https://img.icons8.com/offices/30/enter-key.png"
+										style="height: 12px; vertical-align: middle; margin-left: 6px; display: inline-block;"
+									/></code
+								></pre>
+						</div>
+					</Step>
+				</Stepper>
+			</div>
+
+			<div class="absolute" style="top: 10%; left: 10%; transform: translate(-10%, -10%);">
+				<h5
+					class="text-3xl font-bold mb-8"
+					style="color: rgb(59, 130, 246); margin-left: 20%; user-select: none;"
+				>
+					downloads
+				</h5>
+
+				<div class="flex items-center gap-12">
+					<!-- Stats Section -->
+					<div class="flex flex-col items-start">
+						<p class="text-lg mb-2" style="user-select: none; font-family: 'Roboto', sans-serif;">
+							Weekly:
+							<span class="font-bold" style="color: rgb(59, 130, 246);"
+								>{formatNumber(weeklyDownloads)}</span
+							>
+						</p>
+						<p class="text-lg mb-2" style="user-select: none; font-family: 'Roboto', sans-serif;">
+							Monthly:
+							<span class="font-bold" style="color: rgb(59, 130, 246);"
+								>{formatNumber(monthlyDownloads)}</span
+							>
+						</p>
+						<p class="text-lg" style="user-select: none; font-family: 'Roboto', sans-serif;">
+							Yearly:
+							<span class="font-bold" style="color: rgb(59, 130, 246);"
+								>{formatNumber(yearlyDownloads)}</span
+							>
+						</p>
+					</div>
+
+					<!-- Chart Section -->
+					<div style="user-select: none;">
+						<ConicGradient stops={conicStops} legend>
+							<span slot="caption" class="text-sm" style="color: rgb(59, 130, 246);"
+								>Download Distribution</span
+							>
+						</ConicGradient>
+					</div>
+				</div>
+			</div>
+
+			<style>
+				.stepper-container {
+					position: absolute;
+					top: 8%; /* Move it slightly higher */
+					right: 5%; /* Move it further to the right side of the page */
+					z-index: 10; /* Ensure it stays on top of other elements */
+					user-select: none;
+				}
+
+				pre code {
+					background-color: #29303d; /* Light background for contrast */
+					padding: 1px 4px; /* Add padding for readability */
+					border-radius: 4px; /* Optional: smooth edges */
+					color: #fff; /* Dark text for readability */
+					overflow-x: auto; /* Ensure long lines don't overflow */
+					user-select: none;
+				}
+
+				.badge {
+					background-color: #3b82f6; /* Set background color */
+					color: #ffffff; /* Set text color to white */
+					padding: 5px 10px; /* Optional: add padding for better spacing */
+					border-radius: 12px; /* Optional: rounded corners */
+					user-select: none;
+				}
+
+				.active {
+					background-color: #3b82f6; /* Set background color */
+					color: #ffffff; /* Set text color to white */
+					padding: 5px 10px; /* Optional: add padding for better spacing */
+					border-radius: 12px; /* Optional: rounded corners */
+					user-select: none;
+				}
+
+				.btn {
+					font-size: 12px; /* Ridurre la dimensione del font */
+					padding: 1px 8px; /* Ridurre il padding per un bottone più compatto */
+					border-radius: 8px;
+					user-select: none;
+				}
+
+				.btn.variant-filled {
+					background-color: #3b82f6; /* Set background color */
+					color: #ffffff; /* Set text color to white */
+					font-weight: bold; /* Make text bold */
+					user-select: none;
+				}
+
+				.btn.variant-filled-primary {
+					background-color: #ed5463; /* Set background color */
+					color: #ffffff; /* Set text color to white */
+					font-weight: bold; /* Make text bold */
+					user-select: none;
+				}
+
+				.btn.variant-ghost {
+					background-color: #1f2937; /* Set background color */
+					color: #ffffff; /* Set text color to white */
+					font-weight: bold; /* Make text bold */
+					user-select: none;
+				}
+			</style>
+		</main>
+
+		<footer class="bg-dark-800 py-4 text-center relative">
+			<p class="footer-text">© {time.getFullYear()} Neko-CLI. All rights reserved. ❤️</p>
+			<p class="footer-time">
+				Time: {time.getHours().toString().padStart(2, '0')}h:{time
+					.getMinutes()
+					.toString()
+					.padStart(2, '0')}m:{time.getSeconds().toString().padStart(2, '0')}s {timezone}
+			</p>
+		</footer>
 
 		<style>
-			.stepper-container {
-				position: absolute;
-				top: 8%; /* Move it slightly higher */
-				right: 5%; /* Move it further to the right side of the page */
-				z-index: 10; /* Ensure it stays on top of other elements */
+			.bg-dark-800 {
+				background-color: #111827;
+				color: #ffffff;
+				user-select: none;
 			}
-
-			pre code {
-				background-color: #29303d; /* Light background for contrast */
-				padding: 1px 4px; /* Add padding for readability */
-				border-radius: 4px; /* Optional: smooth edges */
-				color: #fff; /* Dark text for readability */
-				overflow-x: auto; /* Ensure long lines don't overflow */
-			}
-
-			.badge {
-				background-color: #3b82f6; /* Set background color */
-				color: #ffffff; /* Set text color to white */
-				padding: 5px 10px; /* Optional: add padding for better spacing */
-				border-radius: 12px; /* Optional: rounded corners */
-			}
-
-			.active {
-				background-color: #3b82f6; /* Set background color */
-				color: #ffffff; /* Set text color to white */
-				padding: 5px 10px; /* Optional: add padding for better spacing */
-				border-radius: 12px; /* Optional: rounded corners */
-			}
-
-			.btn {
-				font-size: 12px; /* Ridurre la dimensione del font */
-				padding: 1px 8px; /* Ridurre il padding per un bottone più compatto */
-				border-radius: 8px;
-			}
-
-			.btn.variant-filled {
-				background-color: #3b82f6; /* Set background color */
-				color: #ffffff; /* Set text color to white */
-				font-weight: bold; /* Make text bold */
-			}
-
-			.btn.variant-filled-primary {
-				background-color: #3b82f6; /* Set background color */
-				color: #ffffff; /* Set text color to white */
-				font-weight: bold; /* Make text bold */
-			}
-
-			.btn.variant-ghost {
-				background-color: #1f2937; /* Set background color */
-				color: #ffffff; /* Set text color to white */
-				font-weight: bold; /* Make text bold */
+			footer {
+				padding: 20px;
+				text-align: center;
+				user-select: none;
 			}
 		</style>
-	</main>
 
-	<footer class="bg-dark-800 py-4 text-center relative">
-		<p>
-			© {time.getFullYear()} Neko-CLI. All rights reserved. ❤️ Time ({time
-				.getHours()
-				.toString()
-				.padStart(2, '0')}h:{time.getMinutes().toString().padStart(2, '0')}m:{time
-				.getSeconds()
-				.toString()
-				.padStart(2, '0')}s) {timezone}
-		</p>
-	</footer>
+		<!-- Smartsupp Live Chat script -->
+		<script type="text/javascript">
+			window.onload = function () {
+				var chatContainer = document.querySelector('.smartsupp-chat');
+				if (chatContainer) {
+					chatContainer.style.userSelect = 'none'; // Disabilita la selezione del testo
+				}
+			};
 
-	<style>
-		.bg-dark-800 {
-			background-color: #111827;
-			color: #ffffff;
-		}
-		footer {
-			padding: 20px;
-			text-align: center;
-		}
-	</style>
+			var _smartsupp = _smartsupp || {};
+			_smartsupp.key = '06f9f5981510c00f7a4635697322688d95910d8d';
+			window.smartsupp ||
+				(function (d) {
+					var s,
+						c,
+						o = (smartsupp = function () {
+							o._.push(arguments);
+						});
+					o._ = [];
+					s = d.getElementsByTagName('script')[0];
+					c = d.createElement('script');
+					c.type = 'text/javascript';
+					c.charset = 'utf-8';
+					c.async = true;
+					c.src = 'https://www.smartsuppchat.com/loader.js?';
+					s.parentNode.insertBefore(c, s);
+				})(document);
+		</script>
 
-	<!-- Smartsupp Live Chat script -->
-	<script type="text/javascript">
-		var _smartsupp = _smartsupp || {};
-		_smartsupp.key = '06f9f5981510c00f7a4635697322688d95910d8d';
-		window.smartsupp ||
-			(function (d) {
-				var s,
-					c,
-					o = (smartsupp = function () {
-						o._.push(arguments);
-					});
-				o._ = [];
-				s = d.getElementsByTagName('script')[0];
-				c = d.createElement('script');
-				c.type = 'text/javascript';
-				c.charset = 'utf-8';
-				c.async = true;
-				c.src = 'https://www.smartsuppchat.com/loader.js?';
-				s.parentNode.insertBefore(c, s);
-			})(document);
-	</script>
-
-	<style>
-		.donate-btn {
-			animation: pulse 1.5s infinite ease-in-out;
-		}
-
-		@keyframes pulse {
-			0% {
-				transform: scale(1);
+		<style>
+			* {
+				user-select: none;
 			}
-			50% {
-				transform: scale(1.1);
+
+			.smartsupp-chat {
+				user-select: none; /* Impedisce la selezione del testo */
 			}
-			100% {
-				transform: scale(1);
+
+			.donate-btn {
+				animation: pulse 1.5s infinite ease-in-out;
+				user-select: none;
 			}
-		}
-	</style>
+
+			@keyframes pulse {
+				0% {
+					transform: scale(1);
+				}
+				50% {
+					transform: scale(1.1);
+				}
+				100% {
+					transform: scale(1);
+				}
+			}
+		</style>
+	</div>
 </div>
+
+<style>
+	/* Overlay per il caricamento */
+	.loading-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		backdrop-filter: blur(10px); /* Effetto blur */
+		z-index: 9999; /* Sopra tutto il contenuto */
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		pointer-events: auto; /* Blocca interazioni */
+		user-select: none;
+	}
+
+	.loading-hidden {
+		display: none; /* Nasconde overlay quando non in uso */
+		user-select: none;
+	}
+
+	body {
+		font-family: 'Roboto', sans-serif;
+		margin: 0;
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		overflow: hidden; /* Impedisce lo scroll durante il caricamento */
+		position: relative;
+	}
+
+	/* Disabilita scrolling quando la pagina è in caricamento */
+	body.loading {
+		overflow: hidden;
+		user-select: none;
+	}
+	/* Effetto blur quando il caricamento è attivo */
+	.blur {
+		filter: blur(5px);
+		transition: filter 0.5s ease;
+		user-select: none;
+	}
+	/* Rimuovi blur */
+	.no-blur {
+		filter: none;
+		transition: filter 0.5s ease;
+		user-select: none;
+	}
+	/* Contenitore progress bar */
+	.progress-container {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 1000;
+		user-select: none;
+	}
+
+	.blurred {
+		/* Apply blur effect globally or to specific elements during loading */
+		overflow: hidden; /* Prevent scroll during loading */
+		pointer-events: none; /* Disable interaction */
+		opacity: 0.5; /* Optional: dim the background */
+		filter: blur(5px); /* Add blur */
+		cursor: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zY3JpcHQtMS4yIj4KPHBhdGggZD0iTTEuOTggMTEuNzIgYy0wLjg1IC0wLjg1IDAtMS45MCAwLTEuOTIgMCAwLTIuMDEgMi4wMiA0LjA1bDEuOTIgMS45MmMwLjE2LjIuMTEgMC4yMS0wLjEgMCAwLTEuMiAyLjE5LCAyLjIyIC0uNjkgMy4wMjAgbC0uODUyIC0uODUyYzAsMC4wMDQuOTIuNTEgMS4zNSw0LjM1IiBzdHJva2U9IiNGRjZBQkMiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVuIHBhdGgiIHJlc3BvbnNlLXRvPSJ0ZXh0IiB0c3BhY2U9IlJ1c3QiIHN0eWxlPSJmZWF0dXJlOiBvYmplY3Q7PC9wYXRoPjwvc3ZnPg=='),
+			not-allowed; /* Custom cursor (base64 encoded) */
+		user-select: none;
+	}
+
+	#loading-message {
+		color: white;
+		font-size: 2em;
+		font-family: 'Roboto', sans-serif;
+		text-align: center;
+		pointer-events: none; /* Disabilita l'interazione sul testo */
+		transition: opacity 0.5s ease; /* Aggiunge una transizione per il testo */
+		user-select: none;
+	}
+
+	body.loading .blurred {
+		display: flex;
+		opacity: 1;
+		filter: blur(5px);
+		user-select: none;
+	}
+
+	body.loaded .blurred {
+		display: none;
+		user-select: none;
+	}
+
+	/* Stili per il messaggio di caricamento */
+	.loading span {
+		font-size: 4rem; /* Grandezza del testo */
+		font-weight: bold; /* Testo in grassetto */
+		color: #333;
+		user-select: none;
+	}
+
+	/* Quando il caricamento è terminato, rimuoviamo il blur */
+	.loaded {
+		filter: none;
+		user-select: none;
+	}
+
+	.loading-text {
+		font-size: 4rem; /* Grandezza del testo */
+		font-weight: bold; /* Testo in grassetto */
+		color: #2d87f0; /* Colore del testo */
+		pointer-events: none; /* Disabilita l'interazione (clic) */
+		user-select: none; /* Impedisce la selezione del testo */
+		position: relative; /* Posizione relativa per farlo rimanere sopra l'overlay */
+		z-index: 10000; /* Assicura che il testo sia sopra l'overlay */
+	}
+
+	/* Quando il caricamento è terminato, rimuoviamo il blur */
+	.loaded .loading-overlay {
+		display: none;
+		user-select: none;
+	}
+
+	.loaded h1 {
+		text-align: center;
+		user-select: none;
+	}
+
+	footer {
+		background-color: transparent;
+		color: #3b82f6;
+		padding: 16px 0;
+		font-family: 'Roboto', sans-serif;
+		position: fixed;
+		bottom: 0;
+		user-select: none;
+		left: 50%; /* Posiziona al centro */
+		width: 80%; /* Riduce la larghezza al 80% della pagina */
+		transform: translateX(-50%); /* Centra il footer */
+		text-align: center;
+		z-index: 1000;
+	}
+
+	footer p {
+		margin: 0; /* Rimuove il margine per un layout più compatto */
+		font-size: 14px; /* Dimensione del testo compatta */
+		user-select: none;
+		line-height: 1.4; /* Spaziatura tra le righe per migliorare la leggibilità */
+	}
+
+	footer .footer-text {
+		font-weight: bold; /* Rende il copyright più evidente */
+		user-select: none;
+	}
+
+	footer .footer-time {
+		font-style: italic; /* Rende il tempo più discreto con uno stile corsivo */
+		user-select: none;
+	}
+
+	footer .footer-text,
+	footer .footer-time {
+		margin-bottom: 8px; /* Aggiungi un po' di spazio tra il copyright e l'orario */
+		user-select: none;
+	}
+
+	footer p:last-child {
+		margin-bottom: 0; /* Rimuove il margine inferiore per l'ultimo elemento */
+		user-select: none;
+	}
+</style>
