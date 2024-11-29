@@ -68,45 +68,19 @@
 		}
 	}
 
-	var sc_project = 13065098;
-	var sc_invisible = 0;
-	var sc_security = "7d44ca53";
-	var scJsHost = "https://";
-  
-	// Dynamically create the script tag and append it to the body
-	var script = document.createElement("script");
-	script.type = "text/javascript";
-	script.src = scJsHost + "statcounter.com/counter/counter.js";
-	document.head.appendChild(script);
-
-	const insertStatCounter = () => {
-		const script = document.createElement('script');
-		script.type = 'text/javascript';
-		script.src = 'https://statcounter.com/counter/counter.js'; // URL diretto per lo script
-
-		// Imposta gli attributi globali per StatCounter
-		script.onload = () => {
-			window.sc_project = 13065098;
-			window.sc_invisible = 0;
-			window.sc_security = '7d44ca53';
-		};
-
-		document.body.appendChild(script); // Aggiunge il script nel body della pagina
-
-		// Aggiungi il noscript per i visitatori senza JavaScript
-		const noscriptDiv = document.createElement('div');
-		noscriptDiv.classList.add('statcounter');
-		noscriptDiv.innerHTML = `
-      <a title="Web Analytics Made Easy - Statcounter" href="https://statcounter.com/" target="_blank">
-        <img class="statcounter" src="https://c.statcounter.com/13065098/0/7d44ca53/0/" alt="Web Analytics Made Easy - Statcounter" referrerPolicy="no-referrer-when-downgrade">
-      </a>
-    `;
-		document.body.appendChild(noscriptDiv);
-	};
-
-	// Carica lo script al montaggio del componente
 	onMount(() => {
-		insertStatCounter();
+		if (typeof document !== 'undefined') {
+			// Statcounter Script code
+			var sc_project = 13065098;
+			var sc_invisible = 0;
+			var sc_security = '7d44ca53';
+			var scJsHost = 'https://';
+
+			var script = document.createElement('script');
+			script.type = 'text/javascript';
+			script.src = scJsHost + 'statcounter.com/counter/counter.js';
+			document.head.appendChild(script);
+		}
 	});
 </script>
 
@@ -171,13 +145,12 @@
 			</button>
 		</div>
 	</div>
-	<div class="mt-4 text-center text-white">
-		<div class="statcounter">
-			<a title="site stats" href="https://statcounter.com/" target="_blank">
-			  <img class="statcounter" src="https://c.statcounter.com/13065098/0/7d44ca53/0/" alt="site stats" referrerPolicy="no-referrer-when-downgrade">
-			</a>
-		  </div>
-	</div>
+	<img
+    class="statcounter"
+    src="https://c.statcounter.com/13065098/0/7d44ca53/0/"
+    alt="site stats"
+    referrerPolicy="no-referrer-when-downgrade"
+  />
 </section>
 
 <!-- Features Section -->
@@ -306,5 +279,11 @@
 <style>
 	* {
 		user-select: none;
+	}
+
+	.statcounter {
+		max-width: 100%;
+		height: auto;
+		width: 150px; /* Adjust as necessary */
 	}
 </style>
