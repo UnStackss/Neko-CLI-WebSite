@@ -25,14 +25,14 @@
 			copiedNPM = true;
 			setTimeout(() => {
 				copiedNPM = false;
-			}, 500);
+			}, 1000);
 
 			// Trigger toast notification for NPM
 			const toastNPM = {
 				message: nCLINPMInstall,
 				background: 'bg-gradient-to-tr from-[#111827] via-[#111827] to-[#111827] text-white', // Using #111827 for the dark midnight background
 				classes: 'border-4 border-[#1f2937]', // Darker border for a subtle contrast
-				duration: 500,
+				transitionOutParams: 100,
 				autohide: true
 			};
 			toastStore.trigger(toastNPM);
@@ -47,14 +47,14 @@
 			copiedYarn = true;
 			setTimeout(() => {
 				copiedYarn = false;
-			}, 100);
+			}, 1000);
 
 			// Trigger toast notification for Yarn
 			const toastYarn = {
 				message: nCLIYarnInstall,
 				background: 'bg-gradient-to-tr from-[#111827] via-[#111827] to-[#111827] text-white', // Using #111827 for the dark midnight background
 				classes: 'border-4 border-[#1f2937]', // Darker border for a subtle contrast
-				duration: 100,
+				transitionOutParams: 100,
 				autohide: true
 			};
 
@@ -66,10 +66,14 @@
 </script>
 
 <Toast
-	position="bl"
-	buttonDismissLabel="❌"
-	buttonDismiss="variant-filled-[#111827] rounded-full"
+  position="bl"
+  buttonDismissLabel="❌"
+  buttonDismiss="variant-filled-[#111827] rounded-full"
+  max={2}
+  transitionInParams={{}}
+  transitionOutParams={{ duration: 100 }}
 />
+
 
 <!-- Welcome Section -->
 <section class="text-center mb-4" style="user-select: none;">
