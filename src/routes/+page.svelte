@@ -66,14 +66,13 @@
 </script>
 
 <Toast
-  position="bl"
-  buttonDismissLabel="❌"
-  buttonDismiss="variant-filled-[#111827] rounded-full"
-  max={2}
-  transitionInParams={{}}
-  transitionOutParams={{ duration: 100 }}
+	position="bl"
+	buttonDismissLabel="❌"
+	buttonDismiss="variant-filled-[#111827] rounded-full"
+	max={2}
+	transitionInParams={{}}
+	transitionOutParams={{ duration: 100 }}
 />
-
 
 <!-- Welcome Section -->
 <section class="text-center mb-4" style="user-select: none;">
@@ -88,9 +87,11 @@
 			style="user-select: none;"
 			href="https://nekocli.unstackss.dev/"
 			class="mt-2 inline-block px-6 py-3 bg-transparent text-primary-500 border-2 border-primary-500 rounded-full hover:bg-primary-500 hover:text-white transition-colors duration-300 mr-4"
+			target="_blank"
 		>
 			Learn More
 		</a>
+
 		<a
 			style="user-select: none;"
 			href="https://github.com/UnStackss/Neko-CLI/releases/download/0.0.1/NekoCLISetup.exe"
