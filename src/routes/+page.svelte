@@ -68,6 +68,17 @@
 		}
 	}
 
+	var sc_project = 13065098;
+	var sc_invisible = 0;
+	var sc_security = "7d44ca53";
+	var scJsHost = "https://";
+  
+	// Dynamically create the script tag and append it to the body
+	var script = document.createElement("script");
+	script.type = "text/javascript";
+	script.src = scJsHost + "statcounter.com/counter/counter.js";
+	document.head.appendChild(script);
+
 	const insertStatCounter = () => {
 		const script = document.createElement('script');
 		script.type = 'text/javascript';
@@ -161,7 +172,11 @@
 		</div>
 	</div>
 	<div class="mt-4 text-center text-white">
-		<p>Total visits this month: {$visitCount}</p>
+		<div class="statcounter">
+			<a title="site stats" href="https://statcounter.com/" target="_blank">
+			  <img class="statcounter" src="https://c.statcounter.com/13065098/0/7d44ca53/0/" alt="site stats" referrerPolicy="no-referrer-when-downgrade">
+			</a>
+		  </div>
 	</div>
 </section>
 
