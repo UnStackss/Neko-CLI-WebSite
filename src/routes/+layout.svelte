@@ -509,39 +509,6 @@
 		user-select: none;
 	}
 
-	.loading-hidden {
-		display: none; /* Nasconde overlay quando non in uso */
-		user-select: none;
-	}
-
-	body {
-		font-family: 'Roboto', sans-serif;
-		margin: 0;
-		height: 100vh;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		overflow: hidden; /* Impedisce lo scroll durante il caricamento */
-		position: relative;
-	}
-
-	/* Disabilita scrolling quando la pagina è in caricamento */
-	body.loading {
-		overflow: hidden;
-		user-select: none;
-	}
-	/* Effetto blur quando il caricamento è attivo */
-	.blur {
-		filter: blur(5px);
-		transition: filter 0.5s ease;
-		user-select: none;
-	}
-	/* Rimuovi blur */
-	.no-blur {
-		filter: none;
-		transition: filter 0.5s ease;
-		user-select: none;
-	}
 	/* Contenitore progress bar */
 	.progress-container {
 		position: fixed;
@@ -563,42 +530,6 @@
 		user-select: none;
 	}
 
-	#loading-message {
-		color: white;
-		font-size: 2em;
-		font-family: 'Roboto', sans-serif;
-		text-align: center;
-		pointer-events: none; /* Disabilita l'interazione sul testo */
-		transition: opacity 0.5s ease; /* Aggiunge una transizione per il testo */
-		user-select: none;
-	}
-
-	body.loading .blurred {
-		display: flex;
-		opacity: 1;
-		filter: blur(5px);
-		user-select: none;
-	}
-
-	body.loaded .blurred {
-		display: none;
-		user-select: none;
-	}
-
-	/* Stili per il messaggio di caricamento */
-	.loading span {
-		font-size: 4rem; /* Grandezza del testo */
-		font-weight: bold; /* Testo in grassetto */
-		color: #333;
-		user-select: none;
-	}
-
-	/* Quando il caricamento è terminato, rimuoviamo il blur */
-	.loaded {
-		filter: none;
-		user-select: none;
-	}
-
 	.loading-text {
 		font-size: 4rem; /* Grandezza del testo */
 		font-weight: bold; /* Testo in grassetto */
@@ -610,16 +541,6 @@
 		text-decoration: underline; /* Aggiunge la sottolineatura */
 	}
 
-	/* Quando il caricamento è terminato, rimuoviamo il blur */
-	.loaded .loading-overlay {
-		display: none;
-		user-select: none;
-	}
-
-	.loaded h1 {
-		text-align: center;
-		user-select: none;
-	}
 
 	footer {
 		background-color: transparent;

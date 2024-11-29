@@ -5,6 +5,8 @@
 	initializeStores();
 	import { getToastStore } from '@skeletonlabs/skeleton';
 	const toastStore = getToastStore();
+	import { writable } from 'svelte/store';
+	import { onMount } from 'svelte';
 
 	const nCLINPMInstall = 'npm i -g neko-cli';
 	const nCLIYarnInstall = 'yarn global add neko-cli';
@@ -12,6 +14,8 @@
 	// Import the bash language explicitly
 	import bash from 'highlight.js/lib/languages/bash';
 	import { computePosition } from '@floating-ui/dom';
+
+	export const visitCount = writable(0);
 
 	// Register bash language
 	hljs.registerLanguage('bash', bash);
@@ -63,6 +67,36 @@
 			console.error('Error copying Yarn command:', err);
 		}
 	}
+
+	const insertStatCounter = () => {
+		const script = document.createElement('script');
+		script.type = 'text/javascript';
+		script.src = 'https://statcounter.com/counter/counter.js'; // URL diretto per lo script
+
+		// Imposta gli attributi globali per StatCounter
+		script.onload = () => {
+			window.sc_project = 13065098;
+			window.sc_invisible = 0;
+			window.sc_security = '7d44ca53';
+		};
+
+		document.body.appendChild(script); // Aggiunge il script nel body della pagina
+
+		// Aggiungi il noscript per i visitatori senza JavaScript
+		const noscriptDiv = document.createElement('div');
+		noscriptDiv.classList.add('statcounter');
+		noscriptDiv.innerHTML = `
+      <a title="Web Analytics Made Easy - Statcounter" href="https://statcounter.com/" target="_blank">
+        <img class="statcounter" src="https://c.statcounter.com/13065098/0/7d44ca53/0/" alt="Web Analytics Made Easy - Statcounter" referrerPolicy="no-referrer-when-downgrade">
+      </a>
+    `;
+		document.body.appendChild(noscriptDiv);
+	};
+
+	// Carica lo script al montaggio del componente
+	onMount(() => {
+		insertStatCounter();
+	});
 </script>
 
 <Toast
@@ -125,6 +159,9 @@
 				<span>{copiedYarn ? 'Copied' : 'Yarn'}</span>
 			</button>
 		</div>
+	</div>
+	<div class="mt-4 text-center text-white">
+		<p>Total visits this month: {$visitCount}</p>
 	</div>
 </section>
 
