@@ -607,6 +607,7 @@
 		user-select: none; /* Impedisce la selezione del testo */
 		position: relative; /* Posizione relativa per farlo rimanere sopra l'overlay */
 		z-index: 10000; /* Assicura che il testo sia sopra l'overlay */
+		text-decoration: underline; /* Aggiunge la sottolineatura */
 	}
 
 	/* Quando il caricamento è terminato, rimuoviamo il blur */
