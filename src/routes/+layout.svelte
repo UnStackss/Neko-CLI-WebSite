@@ -307,23 +307,32 @@
 				<div class="flex items-center gap-12">
 					<!-- Stats Section -->
 					<div class="flex flex-col items-start">
-						<p class="text-lg mb-2" style="user-select: none; font-family: 'Roboto', sans-serif;">
+						<p
+							class="text-lg mb-2"
+							style="user-select: none; font-family: 'Roboto', sans-serif; font-weight: bold;"
+						>
 							Weekly:
-							<span class="font-bold" style="color: rgb(59, 130, 246);"
-								>{formatNumber(weeklyDownloads)}</span
-							>
+							<span style="color: rgb(59, 130, 246);">
+								{formatNumber(weeklyDownloads)}
+							</span>
 						</p>
-						<p class="text-lg mb-2" style="user-select: none; font-family: 'Roboto', sans-serif;">
+						<p
+							class="text-lg mb-2"
+							style="user-select: none; font-family: 'Roboto', sans-serif; font-weight: bold;"
+						>
 							Monthly:
-							<span class="font-bold" style="color: rgb(59, 130, 246);"
-								>{formatNumber(monthlyDownloads)}</span
-							>
+							<span style="color: rgb(59, 130, 246);">
+								{formatNumber(monthlyDownloads)}
+							</span>
 						</p>
-						<p class="text-lg" style="user-select: none; font-family: 'Roboto', sans-serif;">
+						<p
+							class="text-lg"
+							style="user-select: none; font-family: 'Roboto', sans-serif; font-weight: bold;"
+						>
 							Yearly:
-							<span class="font-bold" style="color: rgb(59, 130, 246);"
-								>{formatNumber(yearlyDownloads)}</span
-							>
+							<span style="color: rgb(59, 130, 246);">
+								{formatNumber(yearlyDownloads)}
+							</span>
 						</p>
 					</div>
 
