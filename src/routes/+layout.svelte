@@ -8,6 +8,10 @@
 	import css from 'highlight.js/lib/languages/css';
 	import javascript from 'highlight.js/lib/languages/javascript';
 	import typescript from 'highlight.js/lib/languages/typescript';
+	import { initializeStores, Toast } from '@skeletonlabs/skeleton';
+	initializeStores();
+	import { getToastStore } from '@skeletonlabs/skeleton';
+	const toastStore = getToastStore();
 
 	hljs.registerLanguage('xml', xml);
 	hljs.registerLanguage('css', css);
@@ -18,11 +22,11 @@
 	import {
 		ConicGradient,
 		Avatar,
-		Autocomplete,
 		FileDropzone,
 		Stepper,
 		Step
 	} from '@skeletonlabs/skeleton';
+
 	import { text } from '@sveltejs/kit';
 
 	let conicStops = [
@@ -131,7 +135,58 @@
 			document.documentElement.style.overflow = originalOverflow || 'auto';
 		}
 	});
+
+	let blockedUserDT = false;
+
+	async function blockUserDT() {
+		try {
+			blockedUserDT = true;
+			setTimeout(() => {
+				blockedUserDT = false;
+			}, 1000);
+
+			const toastBUDT = {
+				message:
+					'<strong style="font-family: Roboto, sans-serif;">This shortcut is disabled.</strong>',
+				background: 'bg-gradient-to-tr from-[#111827] via-[#111827] to-[#111827] text-white',
+				classes: 'border-4 border-[#1f2937]',
+				transitionOutParams: 100,
+				autohide: true
+			};
+			toastStore.trigger(toastBUDT);
+		} catch (err) {
+			console.error('Error:', err);
+		}
+	}
+
+	onMount(() => {
+		if (typeof document !== 'undefined') {
+			const disableShortcuts = (event) => {
+				if (
+					(event.ctrlKey || event.metaKey) &&
+					(event.key === 'I' || event.key === 'i' || event.key === 'U' || event.key === 'u')
+				) {
+					event.preventDefault();
+					blockUserDT();
+				}
+			};
+
+			document.addEventListener('keydown', disableShortcuts);
+			return () => {
+				document.removeEventListener('keydown', disableShortcuts);
+			};
+		}
+	});
 </script>
+
+<Toast
+	position="bl"
+	buttonDismissLabel="❌"
+	buttonDismiss="variant-filled-[#111827] rounded-full"
+	max={2}
+	transitionInParams={{}}
+	transitionOutParams={{ duration: 100 }}
+/>
 
 {#if isLoading}
 	<div class="progress-container">

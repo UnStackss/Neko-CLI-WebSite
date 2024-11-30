@@ -5,6 +5,9 @@ import { defineConfig } from 'vite';
 export default defineConfig({
 	plugins: [sveltekit(), purgeCss()],
 	build: {
-	  target: 'es2015',
+		target: 'es2015'
 	},
+	server: {
+		hmr: false
+	}
 });
