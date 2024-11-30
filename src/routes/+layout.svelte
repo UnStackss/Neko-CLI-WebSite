@@ -218,7 +218,7 @@
 					<a href="/" class="flex items-center gap-2 flex-shrink-0 relative">
 						<img src="https://i.imgur.com/EjscrL8.png" alt="Neko-CLI Logo" class="w-12 h-12" />
 						<span class="text-2xl font-bold text-primary-500">Neko-CLI</span>
-						<span class="text-sm font-bold absolute bottom-[-4px] right-[-6px] text-[#3b82f6]">{version}</span>
+						<span class="text-sm font-bold absolute bottom-[-4px] right-[-6px] text-[#3b82f6]">v{version}</span>
 					</a>
 					
 					
