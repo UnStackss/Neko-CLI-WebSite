@@ -79,39 +79,48 @@
 	});
 </script>
 
-<Toast
-	position="bl"
-	buttonDismissLabel="❌"
-	buttonDismiss="variant-filled-[#111827] rounded-full"
-	max={2}
-	transitionInParams={{}}
-	transitionOutParams={{ duration: 100 }}
-/>
+<div class="responsive-toast">
+	<Toast
+		position="bl"
+		buttonDismissLabel="❌"
+		buttonDismiss="variant-filled-[#111827] rounded-full"
+		max={2}
+		transitionInParams={{}}
+		transitionOutParams={{ duration: 100 }}
+	/>
+</div>
 
 <section class="text-center mb-4" style="user-select: none;">
-	<h1 class="text-2xl font-extrabold text-primary-500 mb-2" style="user-select: none;">
-		Welcome to Neko-CLI PackageManager
-	</h1>
-	<p class="text-md text-gray-400 mb-3" style="user-select: none;">
-		The ultimate CLI for modern developers, easy to install and use.
-	</p>
-	<div style="user-select: none;">
-		<a
-			style="user-select: none;"
-			href="https://nekocli.unstackss.dev/"
-			class="mt-2 inline-block px-6 py-3 bg-transparent text-primary-500 border-2 border-primary-500 rounded-full hover:bg-primary-500 hover:text-white transition-colors duration-300 mr-4"
-			target="_blank"
-		>
-			Learn More
-		</a>
+	<div class="responsive-page-welcome">
+		<img
+			src="https://i.imgur.com/EjscrL8.png"
+			alt="Neko-CLI Logo"
+			class="w-12 h-12 responsive-logo"
+		/>
+		<h1 class="text-2xl font-extrabold text-primary-500 mb-2" style="user-select: none;">
+			Welcome to Neko-CLI PackageManager
+		</h1>
+		<p class="text-md text-gray-400 mb-3" style="user-select: none;">
+			The ultimate CLI for modern developers, easy to install and use.
+		</p>
+		<div style="user-select: none;">
+			<a
+				style="user-select: none;"
+				href="https://nekocli.unstackss.dev/"
+				class="mt-2 inline-block px-6 py-3 bg-transparent text-primary-500 border-2 border-primary-500 rounded-full hover:bg-primary-500 hover:text-white transition-colors duration-300 mr-4"
+				target="_blank"
+			>
+				Learn More
+			</a>
 
-		<a
-			style="user-select: none; font-weight: bold; font-family: 'Roboto', sans-serif;"
-			href="https://github.com/UnStackss/Neko-CLI/releases/download/0.0.1/NekoCLISetup.exe"
-			class="mt-2 inline-block px-6 py-3 bg-primary-500 text-white border-2 border-primary-500 rounded-full transition-all duration-300 hover:bg-primary-600 hover:border-primary-600 hover:text-white-400 hover:shadow-lg"
-		>
-			Download Installer
-		</a>
+			<a
+				style="user-select: none; font-weight: bold; font-family: 'Roboto', sans-serif;"
+				href="https://github.com/UnStackss/Neko-CLI/releases/download/0.0.1/NekoCLISetup.exe"
+				class="mt-2 inline-block px-6 py-3 bg-primary-500 text-white border-2 border-primary-500 rounded-full transition-all duration-300 hover:bg-primary-600 hover:border-primary-600 hover:text-white-400 hover:shadow-lg"
+			>
+				Download Installer
+			</a>
+		</div>
 	</div>
 </section>
 
@@ -141,7 +150,7 @@
 </section>
 
 <section
-	class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6"
+	class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 responsive-page-features"
 	style="user-select: none;"
 >
 	<div
@@ -185,7 +194,7 @@
 	</div>
 </section>
 
-<section class="mt-6 text-center" style="user-select: none;">
+<section class="mt-6 text-center responsive-page-sponsors" style="user-select: none;">
 	<h2 class="text-xl font-bold text-primary-400 mb-4">Our Sponsors</h2>
 	<div class="flex flex-wrap justify-center gap-8">
 		<div class="flex flex-col items-center max-w-xs">
@@ -258,10 +267,375 @@
 				/>
 			</a>
 		</div>
+		<div class="flex flex-col items-center max-w-xs">
+			<h3 class="text-sm text-primary-500 font-semibold mb-2">EVERCRAFT</h3>
+			<a href="https://evercraft.it/" target="_blank" class="inline-block">
+				<img
+					src="https://i.imgur.com/UZtPdxl.png"
+					alt="EVERCRAFT"
+					class="hover:opacity-80 transition-opacity duration-300 w-20 h-auto"
+				/>
+			</a>
+		</div>
 	</div>
 </section>
 
 <style>
+	.responsive-page-welcome {
+		text-align: center;
+		padding: 20px;
+	}
+
+	.responsive-page-welcome h1 {
+		font-size: 2rem;
+		font-weight: 800;
+		margin-bottom: 10px;
+	}
+
+	.responsive-page-welcome p {
+		font-size: 1rem;
+		margin-bottom: 15px;
+	}
+
+	.responsive-page-welcome a {
+		padding: 12px 24px;
+		border-radius: 9999px;
+		font-weight: bold;
+		transition: all 0.3s ease;
+	}
+
+	.responsive-page-welcome a:nth-child(1) {
+		margin-right: 15px;
+	}
+
+	@media (max-width: 768px) {
+		.responsive-page-welcome {
+			padding: 10px;
+		}
+
+		.responsive-page-welcome h1 {
+			font-size: 1.5rem;
+		}
+
+		.responsive-page-welcome p {
+			font-size: 0.9rem;
+		}
+
+		.responsive-page-welcome a {
+			padding: 10px 20px;
+		}
+
+		.responsive-page-welcome a:nth-child(1) {
+			margin-right: 10px;
+		}
+	}
+
+	@media (max-width: 1024px) and (max-height: 600px) {
+		.responsive-page-welcome {
+			padding: 10px;
+		}
+
+		.responsive-page-welcome h1 {
+			font-size: 1.5rem;
+		}
+
+		.responsive-page-welcome p {
+			font-size: 0.9rem;
+		}
+
+		.responsive-page-welcome a {
+			padding: 10px 20px;
+		}
+
+		.responsive-page-welcome a:nth-child(1) {
+			margin-right: 10px;
+		}
+		
+		.responsive-page-welcome a:nth-child(2) {
+			display: none;
+		}
+	}
+
+	@media (max-width: 1280px) and (max-height: 800px) {
+		.responsive-page-welcome {
+			padding: 10px;
+		}
+
+		.responsive-page-welcome h1 {
+			font-size: 1.5rem;
+		}
+
+		.responsive-page-welcome p {
+			font-size: 0.9rem;
+		}
+
+		.responsive-page-welcome a {
+			padding: 10px 20px;
+		}
+
+		.responsive-page-welcome a:nth-child(1) {
+			margin-right: 10px;
+		}
+		
+		.responsive-page-welcome a:nth-child(2) {
+			display: none;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.responsive-page-welcome h1 {
+			font-size: 1.25rem;
+		}
+
+		.responsive-page-welcome p {
+			font-size: 0.875rem;
+		}
+
+		.responsive-page-welcome a {
+			padding: 8px 16px;
+			font-size: 0.875rem;
+		}
+
+		.responsive-page-welcome div {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.responsive-page-welcome a:nth-child(1) {
+			margin-bottom: 10px;
+		}
+
+		.responsive-page-welcome a:nth-child(2) {
+			display: none;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.responsive-page-features {
+			grid-template-columns: 1fr;
+			padding: 0.25rem;
+			display: none;
+		}
+
+		.card {
+			padding: 0.125rem;
+			margin-bottom: 0.25rem;
+			height: 6rem;
+			overflow: hidden;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		.card .text-primary-400 {
+			font-size: 0.75rem;
+		}
+
+		.card h3 {
+			font-size: 0.625rem;
+			line-height: 1.2;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.card p {
+			font-size: 0.5rem;
+			line-height: 1.1;
+			height: 2.5rem;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+
+	@media (max-width: 1024px) and (max-height: 600px) {
+		.responsive-page-features {
+			grid-template-columns: 1fr;
+			padding: 0.25rem;
+			display: none;
+		}
+
+		.card {
+			padding: 0.125rem;
+			margin-bottom: 0.25rem;
+			height: 6rem;
+			overflow: hidden;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		.card .text-primary-400 {
+			font-size: 0.75rem;
+		}
+
+		.card h3 {
+			font-size: 0.625rem;
+			line-height: 1.2;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.card p {
+			font-size: 0.5rem;
+			line-height: 1.1;
+			height: 2.5rem;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+
+	@media (max-width: 1280px) and (max-height: 800px) {
+		.responsive-page-features {
+			grid-template-columns: 1fr;
+			padding: 0.25rem;
+			display: none;
+		}
+
+		.card {
+			padding: 0.125rem;
+			margin-bottom: 0.25rem;
+			height: 6rem;
+			overflow: hidden;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		.card .text-primary-400 {
+			font-size: 0.75rem;
+		}
+
+		.card h3 {
+			font-size: 0.625rem;
+			line-height: 1.2;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.card p {
+			font-size: 0.5rem;
+			line-height: 1.1;
+			height: 2.5rem;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.responsive-page-features {
+			display: none;
+		}
+
+		.card {
+			padding: 0.125rem;
+			margin-bottom: 0.25rem;
+			height: 8rem;
+			overflow: hidden;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		.card .text-primary-400 {
+			font-size: 0.75rem;
+		}
+
+		.card h3 {
+			font-size: 0.75rem;
+			line-height: 1.2;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.card p {
+			font-size: 0.625rem;
+			line-height: 1.1;
+			height: 3rem;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.responsive-page-sponsors {
+			overflow: hidden;
+			display: none;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.responsive-page-sponsors {
+			overflow: hidden;
+			display: none;
+		}
+	}
+
+	@media (max-width: 820px) {
+		.responsive-page-sponsors {
+			overflow: hidden;
+			display: none; 
+		}
+	}
+
+	@media (max-width: 1024px) {
+		.responsive-page-sponsors {
+			overflow: hidden;
+			display: none; 
+		}
+	}
+
+	@media (max-width: 1280px) and (max-height: 800px) {
+		.responsive-page-sponsors {
+			overflow: hidden;
+			display: none; 
+		}
+	}
+
+	@media (max-width: 480px) {
+		.responsive-toast {
+			display: none;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.responsive-toast {
+			display: none; 
+		}
+	}
+
+	@media (max-width: 820px) {
+		.responsive-toast {
+			display: none; 
+		}
+	}
+
+	@media (max-width: 1024px) {
+		.responsive-toast {
+			display: none; 
+		}
+	}
+
+	.responsive-logo {
+		display: none;
+	}
+
+	@media (max-width: 768px) {
+		.responsive-logo {
+			display: block;
+			margin: 0 auto 1rem auto;
+		}
+
+		.responsive-logo {
+			width: 50px;
+			height: 50px;
+		}
+	}
+
 	* {
 		user-select: none;
 	}
