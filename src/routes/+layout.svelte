@@ -1,5 +1,5 @@
 <script>
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 	import '../app.postcss'; // File CSS per il tema scuro
 	import hljs from 'highlight.js/lib/core';
 	import 'highlight.js/styles/github-dark.css'; // Tema per codice
@@ -125,6 +125,21 @@
 			}
 		}, 170); // Riduci il tempo di aggiornamento a 150ms
 	});
+
+	let originalOverflow;
+
+    onMount(() => {
+        if (typeof window !== 'undefined') {
+            originalOverflow = window.getComputedStyle(document.documentElement).overflow;
+            document.documentElement.style.overflow = 'hidden';
+        }
+    });
+
+    onDestroy(() => {
+        if (typeof window !== 'undefined') {
+            document.documentElement.style.overflow = originalOverflow || 'auto';
+        }
+    });
 </script>
 
 {#if isLoading}
@@ -540,7 +555,6 @@
 		z-index: 10000; /* Assicura che il testo sia sopra l'overlay */
 		text-decoration: underline; /* Aggiunge la sottolineatura */
 	}
-
 
 	footer {
 		background-color: transparent;

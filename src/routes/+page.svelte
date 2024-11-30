@@ -145,12 +145,6 @@
 			</button>
 		</div>
 	</div>
-	<img
-    class="statcounter"
-    src="https://c.statcounter.com/13065098/0/7d44ca53/0/"
-    alt="site stats"
-    referrerPolicy="no-referrer-when-downgrade"
-  />
 </section>
 
 <!-- Features Section -->
@@ -279,11 +273,5 @@
 <style>
 	* {
 		user-select: none;
-	}
-
-	.statcounter {
-		max-width: 100%;
-		height: auto;
-		width: 150px; /* Adjust as necessary */
 	}
 </style>
