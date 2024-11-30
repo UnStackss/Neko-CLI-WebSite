@@ -1,6 +1,6 @@
 <script>
-	import hljs from 'highlight.js/lib/core'; // Import core
-	import { CodeBlock } from '@skeletonlabs/skeleton'; // Import CodeBlock
+	import hljs from 'highlight.js/lib/core';
+	import { CodeBlock } from '@skeletonlabs/skeleton';
 	import { initializeStores, Toast } from '@skeletonlabs/skeleton';
 	initializeStores();
 	import { getToastStore } from '@skeletonlabs/skeleton';
@@ -11,16 +11,14 @@
 	const nCLINPMInstall = 'npm i -g neko-cli';
 	const nCLIYarnInstall = 'yarn global add neko-cli';
 
-	// Import the bash language explicitly
 	import bash from 'highlight.js/lib/languages/bash';
 	import { computePosition } from '@floating-ui/dom';
 
 	export const visitCount = writable(0);
 
-	// Register bash language
 	hljs.registerLanguage('bash', bash);
 
-	let copiedNPM = false; // State for managing button animation
+	let copiedNPM = false;
 	let copiedYarn = false;
 
 	async function handleCopyNPM() {
@@ -31,11 +29,10 @@
 				copiedNPM = false;
 			}, 1000);
 
-			// Trigger toast notification for NPM
 			const toastNPM = {
 				message: nCLINPMInstall,
-				background: 'bg-gradient-to-tr from-[#111827] via-[#111827] to-[#111827] text-white', // Using #111827 for the dark midnight background
-				classes: 'border-4 border-[#1f2937]', // Darker border for a subtle contrast
+				background: 'bg-gradient-to-tr from-[#111827] via-[#111827] to-[#111827] text-white',
+				classes: 'border-4 border-[#1f2937]',
 				transitionOutParams: 100,
 				autohide: true
 			};
@@ -53,11 +50,10 @@
 				copiedYarn = false;
 			}, 1000);
 
-			// Trigger toast notification for Yarn
 			const toastYarn = {
 				message: nCLIYarnInstall,
-				background: 'bg-gradient-to-tr from-[#111827] via-[#111827] to-[#111827] text-white', // Using #111827 for the dark midnight background
-				classes: 'border-4 border-[#1f2937]', // Darker border for a subtle contrast
+				background: 'bg-gradient-to-tr from-[#111827] via-[#111827] to-[#111827] text-white',
+				classes: 'border-4 border-[#1f2937]',
 				transitionOutParams: 100,
 				autohide: true
 			};
@@ -70,7 +66,6 @@
 
 	onMount(() => {
 		if (typeof document !== 'undefined') {
-			// Statcounter Script code
 			var sc_project = 13065098;
 			var sc_invisible = 0;
 			var sc_security = '7d44ca53';
@@ -93,7 +88,6 @@
 	transitionOutParams={{ duration: 100 }}
 />
 
-<!-- Welcome Section -->
 <section class="text-center mb-4" style="user-select: none;">
 	<h1 class="text-2xl font-extrabold text-primary-500 mb-2" style="user-select: none;">
 		Welcome to Neko-CLI PackageManager
@@ -121,7 +115,6 @@
 	</div>
 </section>
 
-<!-- Installation Commands Section (Compact) -->
 <section class="my-4 p-4 text-center rounded-lg" style="user-select: none;">
 	<h2 class="text-xl font-bold text-primary-400 mb-3">Install Neko-CLI by line</h2>
 	<div class="flex justify-center items-center">
@@ -147,7 +140,6 @@
 	</div>
 </section>
 
-<!-- Features Section -->
 <section
 	class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6"
 	style="user-select: none;"
@@ -193,7 +185,6 @@
 	</div>
 </section>
 
-<!-- Sponsors Section -->
 <section class="mt-6 text-center" style="user-select: none;">
 	<h2 class="text-xl font-bold text-primary-400 mb-4">Our Sponsors</h2>
 	<div class="flex flex-wrap justify-center gap-8">

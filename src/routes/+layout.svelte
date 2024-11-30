@@ -1,15 +1,14 @@
 <script>
 	import { onMount, onDestroy } from 'svelte';
-	import '../app.postcss'; // File CSS per il tema scuro
+	import '../app.postcss';
 	import hljs from 'highlight.js/lib/core';
-	import 'highlight.js/styles/github-dark.css'; // Tema per codice
+	import 'highlight.js/styles/github-dark.css';
 	import { storeHighlightJs, ProgressBar } from '@skeletonlabs/skeleton';
 	import xml from 'highlight.js/lib/languages/xml';
 	import css from 'highlight.js/lib/languages/css';
 	import javascript from 'highlight.js/lib/languages/javascript';
 	import typescript from 'highlight.js/lib/languages/typescript';
 
-	// Registrazione delle lingue per il highlighting
 	hljs.registerLanguage('xml', xml);
 	hljs.registerLanguage('css', css);
 	hljs.registerLanguage('javascript', javascript);
@@ -23,7 +22,7 @@
 		FileDropzone,
 		Stepper,
 		Step
-	} from '@skeletonlabs/skeleton'; // Ensure Skeleton is installed and imported
+	} from '@skeletonlabs/skeleton';
 	import { text } from '@sveltejs/kit';
 
 	let conicStops = [
@@ -32,19 +31,16 @@
 		{ label: 'Yearly', color: 'rgba(59, 130, 246, 0.3)', start: 35, end: 100 }
 	];
 
-	// Download stats
 	let weeklyDownloads = 0;
 	let monthlyDownloads = 0;
 	let yearlyDownloads = 0;
 
-	// Helper to format numbers (e.g., 1k, 1M)
 	function formatNumber(num) {
 		if (num >= 1e6) return (num / 1e6).toFixed(1) + 'M';
 		if (num >= 1e3) return (num / 1e3).toFixed(1) + 'k';
 		return num.toString();
 	}
 
-	// Fetch and update data
 	async function fetchDownloadData() {
 		try {
 			const weekly = await fetch('https://api.npmjs.org/downloads/point/last-week/neko-cli').then(
@@ -61,10 +57,8 @@
 			monthlyDownloads = monthly.downloads || 0;
 			yearlyDownloads = yearly.downloads || 0;
 
-			// Calculate total for percentages
 			const totalDownloads = weeklyDownloads + monthlyDownloads + yearlyDownloads;
 
-			// Update gradient stops
 			conicStops = [
 				{
 					label: 'Weekly',
@@ -90,7 +84,6 @@
 		}
 	}
 
-	// Refresh data every 5 seconds
 	onMount(() => {
 		fetchDownloadData();
 		const interval = setInterval(fetchDownloadData, 5000);
@@ -100,7 +93,6 @@
 	let time = new Date();
 	let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-	// Aggiorna l'orario ogni secondo
 	onMount(() => {
 		const interval = setInterval(() => {
 			time = new Date();
@@ -111,35 +103,34 @@
 
 	let lockedState = true;
 
-	let progress = 0; // La variabile per la percentuale di progresso
-	let isLoading = true; // Stato del caricamento
+	let progress = 0;
+	let isLoading = true;
 
 	onMount(() => {
-		// Incremento più rapido per il caricamento
 		const interval = setInterval(() => {
-			progress += 20; // Incrementa di 20 invece di 10
+			progress += 20;
 			if (progress >= 120) {
-				progress = 120; // Assicura che non superi il 100%
-				isLoading = false; // Disattiva il caricamento
-				clearInterval(interval); // Ferma l'incremento
+				progress = 120;
+				isLoading = false;
+				clearInterval(interval);
 			}
-		}, 170); // Riduci il tempo di aggiornamento a 150ms
+		}, 170);
 	});
 
 	let originalOverflow;
 
-    onMount(() => {
-        if (typeof window !== 'undefined') {
-            originalOverflow = window.getComputedStyle(document.documentElement).overflow;
-            document.documentElement.style.overflow = 'hidden';
-        }
-    });
+	onMount(() => {
+		if (typeof window !== 'undefined') {
+			originalOverflow = window.getComputedStyle(document.documentElement).overflow;
+			document.documentElement.style.overflow = 'hidden';
+		}
+	});
 
-    onDestroy(() => {
-        if (typeof window !== 'undefined') {
-            document.documentElement.style.overflow = originalOverflow || 'auto';
-        }
-    });
+	onDestroy(() => {
+		if (typeof window !== 'undefined') {
+			document.documentElement.style.overflow = originalOverflow || 'auto';
+		}
+	});
 </script>
 
 {#if isLoading}
@@ -259,6 +250,7 @@
 			<slot />
 
 			<div class="stepper-container">
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<Stepper
 					buttonCompleteLabel="Nothing to do 🤧"
 					buttonCompleteType="reset"
@@ -270,7 +262,6 @@
 						<svelte:fragment slot="header">Neko-CLI Installation with npm</svelte:fragment>
 						<div style="font-size: 0.75rem;">
 							<p>Click 📋NPM to copy the command, then run it in your terminal:</p>
-							<!-- svelte-ignore a11y-missing-attribute -->
 							<pre><code>> npm i -g neko-cli</code> <code
 									>Enter <img
 										src="https://img.icons8.com/offices/30/enter-key.png"
@@ -278,7 +269,6 @@
 									/></code
 								></pre>
 							<p>To verify, run:</p>
-							<!-- svelte-ignore a11y-missing-attribute -->
 							<pre><code>> meow help</code> <code
 									>Enter <img
 										src="https://img.icons8.com/offices/30/enter-key.png"
@@ -289,10 +279,8 @@
 					</Step>
 					<Step locked={lockedState}>
 						<svelte:fragment slot="header">Neko-CLI Installation with yarn</svelte:fragment>
-						<!-- svelte-ignore a11y-missing-attribute -->
 						<div style="font-size: 0.75rem;">
 							<p>Click 📋YARN to copy the command, then run it in your terminal:</p>
-							<!-- svelte-ignore a11y-missing-attribute -->
 							<pre><code>> yarn global add neko-cli</code> <code
 									>Enter <img
 										src="https://img.icons8.com/offices/30/enter-key.png"
@@ -320,7 +308,6 @@
 				</h5>
 
 				<div class="flex items-center gap-12">
-					<!-- Stats Section -->
 					<div class="flex flex-col items-start">
 						<p
 							class="text-lg mb-2"
@@ -365,62 +352,58 @@
 			<style>
 				.stepper-container {
 					position: absolute;
-					top: 8%; /* Move it slightly higher */
-					right: 5%; /* Move it further to the right side of the page */
-					z-index: 10; /* Ensure it stays on top of other elements */
+					top: 8%;
+					right: 5%;
+					z-index: 10;
 					user-select: none;
 				}
 
 				pre code {
-					background-color: #29303d; /* Light background for contrast */
-					padding: 1px 4px; /* Add padding for readability */
-					border-radius: 4px; /* Optional: smooth edges */
-					color: #fff; /* Dark text for readability */
-					overflow-x: auto; /* Ensure long lines don't overflow */
+					background-color: #29303d;
+					padding: 1px 4px;
+					border-radius: 4px;
+					color: #fff;
+					overflow-x: auto;
 					user-select: none;
 				}
 
 				.badge {
-					background-color: #3b82f6; /* Set background color */
-					color: #ffffff; /* Set text color to white */
-					padding: 5px 10px; /* Optional: add padding for better spacing */
-					border-radius: 12px; /* Optional: rounded corners */
+					background-color: #3b82f6;
+					color: #ffffff;
+					padding: 5px 10px;
+					border-radius: 12px;
 					user-select: none;
 				}
 
 				.active {
-					background-color: #3b82f6; /* Set background color */
-					color: #ffffff; /* Set text color to white */
-					padding: 5px 10px; /* Optional: add padding for better spacing */
-					border-radius: 12px; /* Optional: rounded corners */
+					background-color: #3b82f6;
+					color: #ffffff;
+					padding: 5px 10px;
+					border-radius: 12px;
 					user-select: none;
 				}
-
 				.btn {
-					font-size: 12px; /* Ridurre la dimensione del font */
-					padding: 1px 8px; /* Ridurre il padding per un bottone più compatto */
+					font-size: 12px;
+					padding: 1px 8px;
 					border-radius: 8px;
 					user-select: none;
 				}
-
 				.btn.variant-filled {
-					background-color: #3b82f6; /* Set background color */
-					color: #ffffff; /* Set text color to white */
-					font-weight: bold; /* Make text bold */
+					background-color: #3b82f6;
+					color: #ffffff;
+					font-weight: bold;
 					user-select: none;
 				}
-
 				.btn.variant-filled-primary {
-					background-color: #ed5463; /* Set background color */
-					color: #ffffff; /* Set text color to white */
-					font-weight: bold; /* Make text bold */
+					background-color: #ed5463;
+					color: #ffffff;
+					font-weight: bold;
 					user-select: none;
 				}
-
 				.btn.variant-ghost {
-					background-color: #1f2937; /* Set background color */
-					color: #ffffff; /* Set text color to white */
-					font-weight: bold; /* Make text bold */
+					background-color: #1f2937;
+					color: #ffffff;
+					font-weight: bold;
 					user-select: none;
 				}
 			</style>
@@ -449,12 +432,12 @@
 			}
 		</style>
 
-		<!-- Smartsupp Live Chat script -->
+		<!--LiveChat-->
 		<script type="text/javascript">
 			window.onload = function () {
 				var chatContainer = document.querySelector('.smartsupp-chat');
 				if (chatContainer) {
-					chatContainer.style.userSelect = 'none'; // Disabilita la selezione del testo
+					chatContainer.style.userSelect = 'none';
 				}
 			};
 
@@ -484,7 +467,7 @@
 			}
 
 			.smartsupp-chat {
-				user-select: none; /* Impedisce la selezione del testo */
+				user-select: none;
 			}
 
 			.donate-btn {
@@ -508,23 +491,20 @@
 </div>
 
 <style>
-	/* Overlay per il caricamento */
 	.loading-overlay {
 		position: fixed;
 		top: 0;
 		left: 0;
 		width: 100vw;
 		height: 100vh;
-		backdrop-filter: blur(10px); /* Effetto blur */
-		z-index: 9999; /* Sopra tutto il contenuto */
+		backdrop-filter: blur(10px);
+		z-index: 9999;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		pointer-events: auto; /* Blocca interazioni */
+		pointer-events: auto;
 		user-select: none;
 	}
-
-	/* Contenitore progress bar */
 	.progress-container {
 		position: fixed;
 		top: 0;
@@ -533,29 +513,25 @@
 		z-index: 1000;
 		user-select: none;
 	}
-
 	.blurred {
-		/* Apply blur effect globally or to specific elements during loading */
-		overflow: hidden; /* Prevent scroll during loading */
-		pointer-events: none; /* Disable interaction */
-		opacity: 0.5; /* Optional: dim the background */
-		filter: blur(5px); /* Add blur */
+		overflow: hidden;
+		pointer-events: none;
+		opacity: 0.5;
+		filter: blur(5px);
 		cursor: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zY3JpcHQtMS4yIj4KPHBhdGggZD0iTTEuOTggMTEuNzIgYy0wLjg1IC0wLjg1IDAtMS45MCAwLTEuOTIgMCAwLTIuMDEgMi4wMiA0LjA1bDEuOTIgMS45MmMwLjE2LjIuMTEgMC4yMS0wLjEgMCAwLTEuMiAyLjE5LCAyLjIyIC0uNjkgMy4wMjAgbC0uODUyIC0uODUyYzAsMC4wMDQuOTIuNTEgMS4zNSw0LjM1IiBzdHJva2U9IiNGRjZBQkMiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVuIHBhdGgiIHJlc3BvbnNlLXRvPSJ0ZXh0IiB0c3BhY2U9IlJ1c3QiIHN0eWxlPSJmZWF0dXJlOiBvYmplY3Q7PC9wYXRoPjwvc3ZnPg=='),
-			not-allowed; /* Custom cursor (base64 encoded) */
+			not-allowed;
 		user-select: none;
 	}
-
 	.loading-text {
-		font-size: 4rem; /* Grandezza del testo */
-		font-weight: bold; /* Testo in grassetto */
-		color: #2d87f0; /* Colore del testo */
-		pointer-events: none; /* Disabilita l'interazione (clic) */
-		user-select: none; /* Impedisce la selezione del testo */
-		position: relative; /* Posizione relativa per farlo rimanere sopra l'overlay */
-		z-index: 10000; /* Assicura che il testo sia sopra l'overlay */
-		text-decoration: underline; /* Aggiunge la sottolineatura */
+		font-size: 4rem;
+		font-weight: bold;
+		color: #2d87f0;
+		pointer-events: none;
+		user-select: none;
+		position: relative;
+		z-index: 10000;
+		text-decoration: underline;
 	}
-
 	footer {
 		background-color: transparent;
 		color: #3b82f6;
@@ -564,38 +540,33 @@
 		position: fixed;
 		bottom: 0;
 		user-select: none;
-		left: 50%; /* Posiziona al centro */
-		width: 80%; /* Riduce la larghezza al 80% della pagina */
-		transform: translateX(-50%); /* Centra il footer */
+		left: 50%;
+		width: 80%;
+		transform: translateX(-50%);
 		text-align: center;
 		z-index: 1000;
 	}
-
 	footer p {
-		margin: 0; /* Rimuove il margine per un layout più compatto */
-		font-size: 14px; /* Dimensione del testo compatta */
+		margin: 0;
+		font-size: 14px;
 		user-select: none;
-		line-height: 1.4; /* Spaziatura tra le righe per migliorare la leggibilità */
+		line-height: 1.4;
 	}
-
 	footer .footer-text {
-		font-weight: bold; /* Rende il copyright più evidente */
+		font-weight: bold;
 		user-select: none;
 	}
-
 	footer .footer-time {
-		font-style: italic; /* Rende il tempo più discreto con uno stile corsivo */
+		font-style: italic;
 		user-select: none;
 	}
-
 	footer .footer-text,
 	footer .footer-time {
-		margin-bottom: 8px; /* Aggiungi un po' di spazio tra il copyright e l'orario */
+		margin-bottom: 8px;
 		user-select: none;
 	}
-
 	footer p:last-child {
-		margin-bottom: 0; /* Rimuove il margine inferiore per l'ultimo elemento */
+		margin-bottom: 0;
 		user-select: none;
 	}
 </style>

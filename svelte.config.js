@@ -5,19 +5,17 @@ import sveltePreprocess from 'svelte-preprocess';
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	extensions: ['.svelte'],
-	// Utilizza il preprocessore per altre funzionalità (SCSS, PostCSS, etc)
 	preprocess: [
-		vitePreprocess(), // Il preprocessore Vite
+		vitePreprocess(),
 		sveltePreprocess({
 			babel: {
-				plugins: ['@babel/plugin-transform-react-jsx'], // Aggiungi il supporto per JSX
+				plugins: ['@babel/plugin-transform-react-jsx'],
 			  },
-			  typescript: true, // Se stai usando TypeScript
+			  typescript: true,
 		}),
 	],
 
 	kit: {
-		// Adapter per l'ambiente di produzione
 		adapter: adapter(),
 	},
 };
