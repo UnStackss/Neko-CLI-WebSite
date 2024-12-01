@@ -501,33 +501,7 @@
 			</style>
 
 			<!--LiveChat-->
-			<script type="text/javascript">
-				window.onload = function () {
-					var chatContainer = document.querySelector('.smartsupp-chat');
-					if (chatContainer) {
-						chatContainer.style.userSelect = 'none';
-					}
-				};
-
-				var _smartsupp = _smartsupp || {};
-				_smartsupp.key = '06f9f5981510c00f7a4635697322688d95910d8d';
-				window.smartsupp ||
-					(function (d) {
-						var s,
-							c,
-							o = (smartsupp = function () {
-								o._.push(arguments);
-							});
-						o._ = [];
-						s = d.getElementsByTagName('script')[0];
-						c = d.createElement('script');
-						c.type = 'text/javascript';
-						c.charset = 'utf-8';
-						c.async = true;
-						c.src = 'https://www.smartsuppchat.com/loader.js?';
-						s.parentNode.insertBefore(c, s);
-					})(document);
-			</script>
+			<script src="//code.tidio.co/9bqa6oukoem7oq8upq3sexdguphy0wps.js" async></script>
 
 			<style>
 				* {
