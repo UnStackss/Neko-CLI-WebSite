@@ -218,11 +218,10 @@
 					<a href="/" class="flex items-center gap-2 flex-shrink-0 relative">
 						<img src="https://i.imgur.com/EjscrL8.png" alt="Neko-CLI Logo" class="w-12 h-12" />
 						<span class="text-2xl font-bold text-primary-500">Neko-CLI</span>
-						<span class="text-sm font-bold absolute bottom-[-4px] right-[63px] text-[#3b82f6]">v{version}</span>
+						<span class="text-sm font-bold absolute bottom-[-4px] right-[63px] text-[#3b82f6]"
+							>v{version}</span
+						>
 					</a>
-					
-					
-					
 
 					<nav class="flex gap-6">
 						<button
@@ -502,6 +501,17 @@
 
 			<!--LiveChat-->
 			<script src="//code.tidio.co/9bqa6oukoem7oq8upq3sexdguphy0wps.js" async></script>
+			<!--GoogleAnalystics-->
+			<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPVZX13YJ4"></script>
+			<script>
+				window.dataLayer = window.dataLayer || [];
+				function gtag() {
+					dataLayer.push(arguments);
+				}
+				gtag('js', new Date());
+
+				gtag('config', 'G-KPVZX13YJ4');
+			</script>
 
 			<style>
 				* {
