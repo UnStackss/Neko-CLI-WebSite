@@ -699,6 +699,8 @@
 	footer {
 		padding-top: 10px;
 		text-align: center;
+		max-width: 600px;
+		margin: 0 auto;
 	}
 
 	.appbar {
