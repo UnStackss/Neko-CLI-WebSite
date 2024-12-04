@@ -277,6 +277,16 @@
 				/>
 			</a>
 		</div>
+		<div class="flex flex-col items-center max-w-xs">
+			<h3 class="text-sm text-primary-500 font-semibold mb-2">FullStack Italia</h3>
+			<a href="https://t.me/fullstack" target="_blank" class="inline-block">
+				<img
+					src="https://i.imgur.com/R03hly6.png"
+					alt="FullStack Italia"
+					class="hover:opacity-80 transition-opacity duration-300 w-20 h-auto"
+				/>
+			</a>
+		</div>
 	</div>
 </section>
 
