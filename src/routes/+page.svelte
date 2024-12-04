@@ -287,6 +287,16 @@
 				/>
 			</a>
 		</div>
+		<div class="flex flex-col items-center max-w-xs">
+			<h3 class="text-sm text-primary-500 font-semibold mb-2">EvosHosting</h3>
+			<a href="https://www.evoshosting.com/" target="_blank" class="inline-block">
+				<img
+					src="https://i.imgur.com/94FwhbZ.png"
+					alt="EvosHosting"
+					class="hover:opacity-80 transition-opacity duration-300 w-20 h-auto"
+				/>
+			</a>
+		</div>
 	</div>
 </section>
 
