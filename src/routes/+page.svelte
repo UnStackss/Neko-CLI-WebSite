@@ -115,7 +115,7 @@
 
 			<a
 				style="user-select: none; font-weight: bold; font-family: 'Roboto', sans-serif;"
-				href="https://github.com/UnStackss/Neko-CLI/releases/download/0.0.1/NekoCLISetup.exe"
+				href="https://github.com/UnStackss/Neko-CLI/releases/download/0.0.1/Neko-CLI-Installer.exe"
 				class="mt-2 inline-block px-6 py-3 bg-primary-500 text-white border-2 border-primary-500 rounded-full transition-all duration-300 hover:bg-primary-600 hover:border-primary-600 hover:text-white-400 hover:shadow-lg"
 			>
 				Download Installer
