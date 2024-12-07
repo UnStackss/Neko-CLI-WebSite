@@ -79,6 +79,8 @@
 	});
 </script>
 
+<div id="tsparticles"></div>
+
 <div class="responsive-toast">
 	<Toast
 		position="bl"
@@ -203,7 +205,7 @@
 				<img
 					src="https://i.imgur.com/ki2Qpld.png"
 					alt="DBD Team"
-					class="hover:opacity-80 transition-opacity duration-300 w-20 h-auto"
+					class="hover:opacity-80 transition-opacity duration-300 w-16 h-auto"
 				/>
 			</a>
 		</div>
@@ -213,7 +215,7 @@
 				<img
 					src="https://i.imgur.com/p7np28O.png"
 					alt="BIT.DEV"
-					class="hover:opacity-80 transition-opacity duration-300 w-20 h-auto"
+					class="hover:opacity-80 transition-opacity duration-300 w-16 h-auto"
 				/>
 			</a>
 		</div>
@@ -223,7 +225,7 @@
 				<img
 					src="https://i.imgur.com/7cHxAb6.png"
 					alt="SANITY.IO"
-					class="hover:opacity-80 transition-opacity duration-300 w-20 h-auto"
+					class="hover:opacity-80 transition-opacity duration-300 w-16 h-auto"
 				/>
 			</a>
 		</div>
@@ -231,9 +233,9 @@
 			<h3 class="text-sm text-primary-500 font-semibold mb-2">DISCORD</h3>
 			<a href="https://discord.com/" target="_blank" class="inline-block">
 				<img
-					src="https://i.imgur.com/0ajwXst.png"
+					src="https://i.imgur.com/OG8wUOJ.png"
 					alt="DISCORD"
-					class="hover:opacity-80 transition-opacity duration-300 w-20 h-auto"
+					class="hover:opacity-80 transition-opacity duration-300 w-16 h-auto"
 				/>
 			</a>
 		</div>
@@ -243,7 +245,7 @@
 				<img
 					src="https://i.imgur.com/5EgKxHi.png"
 					alt="VITE"
-					class="hover:opacity-80 transition-opacity duration-300 w-20 h-auto"
+					class="hover:opacity-80 transition-opacity duration-300 w-16 h-auto"
 				/>
 			</a>
 		</div>
@@ -251,9 +253,9 @@
 			<h3 class="text-sm text-primary-500 font-semibold mb-2">CODERABBIT</h3>
 			<a href="https://www.coderabbit.ai/" target="_blank" class="inline-block">
 				<img
-					src="https://i.imgur.com/2Ut1vNt.png"
+					src="https://i.imgur.com/ghxQuT1.png"
 					alt="CODERABBIT"
-					class="hover:opacity-80 transition-opacity duration-300 w-20 h-auto"
+					class="hover:opacity-80 transition-opacity duration-300 w-16 h-auto"
 				/>
 			</a>
 		</div>
@@ -263,7 +265,7 @@
 				<img
 					src="https://i.imgur.com/bDQQpZq.png"
 					alt="INTEL"
-					class="hover:opacity-80 transition-opacity duration-300 w-20 h-auto"
+					class="hover:opacity-80 transition-opacity duration-300 w-16 h-auto"
 				/>
 			</a>
 		</div>
@@ -273,7 +275,7 @@
 				<img
 					src="https://i.imgur.com/UZtPdxl.png"
 					alt="EVERCRAFT"
-					class="hover:opacity-80 transition-opacity duration-300 w-20 h-auto"
+					class="hover:opacity-80 transition-opacity duration-300 w-16 h-auto"
 				/>
 			</a>
 		</div>
@@ -283,7 +285,7 @@
 				<img
 					src="https://i.imgur.com/R03hly6.png"
 					alt="FullStack Italia"
-					class="hover:opacity-80 transition-opacity duration-300 w-20 h-auto"
+					class="hover:opacity-80 transition-opacity duration-300 w-16 h-auto"
 				/>
 			</a>
 		</div>
@@ -293,14 +295,29 @@
 				<img
 					src="https://i.imgur.com/94FwhbZ.png"
 					alt="EvosHosting"
-					class="hover:opacity-80 transition-opacity duration-300 w-20 h-auto"
+					class="hover:opacity-80 transition-opacity duration-300 w-16 h-auto"
 				/>
 			</a>
 		</div>
 	</div>
+	<div class="mt-4 text-center become-a-sponsor">
+		<a
+			href="mailto:nekoclisupp@gmail.com?cc=thomasgarau2002@gmail.com&subject=Proposal%20Sponsor%20Neko-CLI%20x%20%5Bname%20here%5D&body=Dear...%20%5Btext%20here%5D"
+			class="inline-block bg-primary-500 text-white text-s font-semibold py-1 px-3 rounded-full hover:bg-primary-600 transition-colors duration-300"
+			style="font-family: 'Roboto', sans-serif;"
+		>
+			Become a Sponsor
+		</a>
+	</div>
 </section>
 
 <style>
+	@media (max-width: 768px) {
+		.become-a-sponsor {
+			display: none;
+		}
+	}
+
 	.responsive-page-welcome {
 		text-align: center;
 		padding: 20px;
@@ -370,7 +387,7 @@
 		.responsive-page-welcome a:nth-child(1) {
 			margin-right: 10px;
 		}
-		
+
 		.responsive-page-welcome a:nth-child(2) {
 			display: none;
 		}
@@ -396,7 +413,7 @@
 		.responsive-page-welcome a:nth-child(1) {
 			margin-right: 10px;
 		}
-		
+
 		.responsive-page-welcome a:nth-child(2) {
 			display: none;
 		}
@@ -598,21 +615,21 @@
 	@media (max-width: 820px) {
 		.responsive-page-sponsors {
 			overflow: hidden;
-			display: none; 
+			display: none;
 		}
 	}
 
 	@media (max-width: 1024px) {
 		.responsive-page-sponsors {
 			overflow: hidden;
-			display: none; 
+			display: none;
 		}
 	}
 
 	@media (max-width: 1280px) and (max-height: 800px) {
 		.responsive-page-sponsors {
 			overflow: hidden;
-			display: none; 
+			display: none;
 		}
 	}
 
@@ -624,19 +641,19 @@
 
 	@media (max-width: 768px) {
 		.responsive-toast {
-			display: none; 
+			display: none;
 		}
 	}
 
 	@media (max-width: 820px) {
 		.responsive-toast {
-			display: none; 
+			display: none;
 		}
 	}
 
 	@media (max-width: 1024px) {
 		.responsive-toast {
-			display: none; 
+			display: none;
 		}
 	}
 

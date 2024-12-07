@@ -11,6 +11,7 @@
 	import { initializeStores, Toast } from '@skeletonlabs/skeleton';
 	initializeStores();
 	import { getToastStore } from '@skeletonlabs/skeleton';
+
 	const toastStore = getToastStore();
 
 	hljs.registerLanguage('xml', xml);
