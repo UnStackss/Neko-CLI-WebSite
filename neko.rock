@@ -1,0 +1,226 @@
+
+🐾 neko-cli package lock 🐾
+
+dependencies:
+🐱 :
+  🔖 version: "babel/core"
+  📦 resolved: "https://registry.npmjs.org//-/-babel/core.tgz"
+  🔒 integrity: "sha512-d2OSRB1EPjqLg53gDRo3CtHLn295RLFkN9ZJqmkrFjRURzFnJhxxeP9Vls6vOWcx31Hb/y878vljWsq0RdtC4w=="
+  ⚙️ type: runtime
+
+🐱 :
+  🔖 version: "babel/plugin-transform-react-jsx"
+  📦 resolved: "https://registry.npmjs.org//-/-babel/plugin-transform-react-jsx.tgz"
+  🔒 integrity: "sha512-rYk/RwQl9zSxKx+j1IlY46H0T8fLfO0rygL+W2JplbxFdb00VljBvu3hj55wQqSCKIpPtP6XCPHOGwljlqSV/A=="
+  ⚙️ type: runtime
+
+🐱 :
+  🔖 version: "floating-ui/dom"
+  📦 resolved: "https://registry.npmjs.org//-/-floating-ui/dom.tgz"
+  🔒 integrity: "sha512-u5IIVDK9PSQqJk4PNAat6zhs8ImlrVMesnFw6fMcaQPF3oZoIOyEJqoNwQ8ceTQM6I97v6KGPcVjTIXn3OuFIw=="
+  ⚙️ type: runtime
+
+🐱 :
+  🔖 version: "sveltejs/adapter-static"
+  📦 resolved: "https://registry.npmjs.org//-/-sveltejs/adapter-static.tgz"
+  🔒 integrity: "sha512-Xq3LuvlGHJydBmCxVw7FA8SPv6z1rG26VnR2W2TrBwfBzthDsH/PJVkb5zeLOzR937zy0RIdc5qoiyKi10NtUA=="
+  ⚙️ type: runtime
+
+🐱 axios:
+  🔖 version: "^1.7.9"
+  📦 resolved: "https://registry.npmjs.org/axios/-/axios-^1.7.9.tgz"
+  🔒 integrity: "sha512-AEHYbO4DUrbor46XVfvorW2xkSt7wu/VPRn/YM6Peaabusm8K7rCXZ+m2enkjYvMJB/gR3bCPBO6WisolmQ1cg=="
+  ⚙️ type: runtime
+
+🐱 base64-img:
+  🔖 version: "^1.0.4"
+  📦 resolved: "https://registry.npmjs.org/base64-img/-/base64-img-^1.0.4.tgz"
+  🔒 integrity: "sha512-AEHYbO4DUrbor46XVfvorW2xkSt7wu/VPRn/YM6Peaabusm8K7rCXZ+m2enkjYvMJB/gR3bCPBO6WisolmQ1cg=="
+  ⚙️ type: runtime
+
+🐱 fs:
+  🔖 version: "^0.0.1-security"
+  📦 resolved: "https://registry.npmjs.org/fs/-/fs-^0.0.1-security.tgz"
+  🔒 integrity: "sha512-AEHYbO4DUrbor46XVfvorW2xkSt7wu/VPRn/YM6Peaabusm8K7rCXZ+m2enkjYvMJB/gR3bCPBO6WisolmQ1cg=="
+  ⚙️ type: runtime
+
+🐱 highlight.js:
+  🔖 version: "^11.10.0"
+  📦 resolved: "https://registry.npmjs.org/highlight.js/-/highlight.js-^11.10.0.tgz"
+  🔒 integrity: "sha512-AEHYbO4DUrbor46XVfvorW2xkSt7wu/VPRn/YM6Peaabusm8K7rCXZ+m2enkjYvMJB/gR3bCPBO6WisolmQ1cg=="
+  ⚙️ type: runtime
+
+🐱 kbar:
+  🔖 version: "^0.1.0-beta.45"
+  📦 resolved: "https://registry.npmjs.org/kbar/-/kbar-^0.1.0-beta.45.tgz"
+  🔒 integrity: "sha512-AEHYbO4DUrbor46XVfvorW2xkSt7wu/VPRn/YM6Peaabusm8K7rCXZ+m2enkjYvMJB/gR3bCPBO6WisolmQ1cg=="
+  ⚙️ type: runtime
+
+🐱 react:
+  🔖 version: "^18.3.1"
+  📦 resolved: "https://registry.npmjs.org/react/-/react-^18.3.1.tgz"
+  🔒 integrity: "sha512-AEHYbO4DUrbor46XVfvorW2xkSt7wu/VPRn/YM6Peaabusm8K7rCXZ+m2enkjYvMJB/gR3bCPBO6WisolmQ1cg=="
+  ⚙️ type: runtime
+
+🐱 react-dom:
+  🔖 version: "^18.3.1"
+  📦 resolved: "https://registry.npmjs.org/react-dom/-/react-dom-^18.3.1.tgz"
+  🔒 integrity: "sha512-AEHYbO4DUrbor46XVfvorW2xkSt7wu/VPRn/YM6Peaabusm8K7rCXZ+m2enkjYvMJB/gR3bCPBO6WisolmQ1cg=="
+  ⚙️ type: runtime
+
+🐱 react-toastify:
+  🔖 version: "^10.0.6"
+  📦 resolved: "https://registry.npmjs.org/react-toastify/-/react-toastify-^10.0.6.tgz"
+  🔒 integrity: "sha512-AEHYbO4DUrbor46XVfvorW2xkSt7wu/VPRn/YM6Peaabusm8K7rCXZ+m2enkjYvMJB/gR3bCPBO6WisolmQ1cg=="
+  ⚙️ type: runtime
+
+🐱 svelte-spa-router:
+  🔖 version: "^4.0.1"
+  📦 resolved: "https://registry.npmjs.org/svelte-spa-router/-/svelte-spa-router-^4.0.1.tgz"
+  🔒 integrity: "sha512-AEHYbO4DUrbor46XVfvorW2xkSt7wu/VPRn/YM6Peaabusm8K7rCXZ+m2enkjYvMJB/gR3bCPBO6WisolmQ1cg=="
+  ⚙️ type: runtime
+
+🐱 :
+  🔖 version: "skeletonlabs/skeleton"
+  📦 resolved: "https://registry.npmjs.org//-/-skeletonlabs/skeleton.tgz"
+  🔒 integrity: "sha512-8oRI4LkBhCwUUVfYbEXMBAzZ/XcaQKI/ITQ28aoqkCEoGo8W9ljslSpOlLybRQkSzwMcV8cNCJI6P8vQ/O1EdQ=="
+  ⚙️ type: runtime
+
+🐱 :
+  🔖 version: "skeletonlabs/tw-plugin"
+  📦 resolved: "https://registry.npmjs.org//-/-skeletonlabs/tw-plugin.tgz"
+  🔒 integrity: "sha512-yeErWnqvBKtkypkng8gRZEgPDKNoHsB5Vr3ioNwXuql67DMRUL5WcZkGhff96Pt6sp9x43cC9jfZXLSwBw1uGQ=="
+  ⚙️ type: runtime
+
+🐱 :
+  🔖 version: "sveltejs/adapter-auto"
+  📦 resolved: "https://registry.npmjs.org//-/-sveltejs/adapter-auto.tgz"
+  🔒 integrity: "sha512-lfBpx9HzJp/6JD2FmOD7MIjN1azxmh7I4khS1srxC5Kt4B0Sl9maqDkhVOuTGTNPxwcKaWwLuQH5a/PkN9TzWg=="
+  ⚙️ type: runtime
+
+🐱 :
+  🔖 version: "sveltejs/adapter-netlify"
+  📦 resolved: "https://registry.npmjs.org//-/-sveltejs/adapter-netlify.tgz"
+  🔒 integrity: "sha512-D5WOES02NRMq84JlWAYzGeyIeHokkXbfnA+0HQMMWv3X0ZOlZWOxs5iaEKoPeXH4hE05xIoaf6rHQ+lGHfwYYA=="
+  ⚙️ type: runtime
+
+🐱 :
+  🔖 version: "sveltejs/kit"
+  📦 resolved: "https://registry.npmjs.org//-/-sveltejs/kit.tgz"
+  🔒 integrity: "sha512-CE8JWM9EzJeNpTK1GAeno6XnIQ4KKkVs4B6108JIbWnN75C6GGHnO1y3DHRMjqmt8FLWLuKtaYmKepfPNooN/Q=="
+  ⚙️ type: runtime
+
+🐱 :
+  🔖 version: "sveltejs/vite-plugin-svelte"
+  📦 resolved: "https://registry.npmjs.org//-/-sveltejs/vite-plugin-svelte.tgz"
+  🔒 integrity: "sha512-mqqZwvLdWM0Ui9rr+qiJrPeXJBcdJfHoT41Orq4nJWg9Q0YG3tY829aMT5O68AltOQ2m/T9RmKrl6rB53M3rKQ=="
+  ⚙️ type: runtime
+
+🐱 :
+  🔖 version: "tailwindcss/forms"
+  📦 resolved: "https://registry.npmjs.org//-/-tailwindcss/forms.tgz"
+  🔒 integrity: "sha512-FeIwUV4XJ4c0vwBTJ15nEOXNcH2fS43ZI2+DfvSNTt+aGUuOuSBVGR/9YjqQD6feXG7XviNqkV5K8FA0z2Qqug=="
+  ⚙️ type: runtime
+
+🐱 :
+  🔖 version: "tailwindcss/typography"
+  📦 resolved: "https://registry.npmjs.org//-/-tailwindcss/typography.tgz"
+  🔒 integrity: "sha512-90cZhluYuPN/WNILQd8Kj+toAK3xFJ0zw9AjJtjx8BDbPUjEEQ0ChJOvOz2mpbf7/3zSeqAFx76kX39LaazE3w=="
+  ⚙️ type: runtime
+
+🐱 :
+  🔖 version: "types/eslint"
+  📦 resolved: "https://registry.npmjs.org//-/-types/eslint.tgz"
+  🔒 integrity: "sha512-dVT+lHZLUBdaIHvLoIxzy86XNPoUBZiBBbH9YsPs2UGl+FP1e12uoRw/XBwY3stpZ4Uk/q0lRZ1cfbRa6LILaA=="
+  ⚙️ type: runtime
+
+🐱 autoprefixer:
+  🔖 version: "^10.4.20"
+  📦 resolved: "https://registry.npmjs.org/autoprefixer/-/autoprefixer-^10.4.20.tgz"
+  🔒 integrity: "sha512-AEHYbO4DUrbor46XVfvorW2xkSt7wu/VPRn/YM6Peaabusm8K7rCXZ+m2enkjYvMJB/gR3bCPBO6WisolmQ1cg=="
+  ⚙️ type: runtime
+
+🐱 eslint:
+  🔖 version: "^9.0.0"
+  📦 resolved: "https://registry.npmjs.org/eslint/-/eslint-^9.0.0.tgz"
+  🔒 integrity: "sha512-AEHYbO4DUrbor46XVfvorW2xkSt7wu/VPRn/YM6Peaabusm8K7rCXZ+m2enkjYvMJB/gR3bCPBO6WisolmQ1cg=="
+  ⚙️ type: runtime
+
+🐱 eslint-config-prettier:
+  🔖 version: "^9.1.0"
+  📦 resolved: "https://registry.npmjs.org/eslint-config-prettier/-/eslint-config-prettier-^9.1.0.tgz"
+  🔒 integrity: "sha512-AEHYbO4DUrbor46XVfvorW2xkSt7wu/VPRn/YM6Peaabusm8K7rCXZ+m2enkjYvMJB/gR3bCPBO6WisolmQ1cg=="
+  ⚙️ type: runtime
+
+🐱 eslint-plugin-svelte:
+  🔖 version: "^2.36.0"
+  📦 resolved: "https://registry.npmjs.org/eslint-plugin-svelte/-/eslint-plugin-svelte-^2.36.0.tgz"
+  🔒 integrity: "sha512-AEHYbO4DUrbor46XVfvorW2xkSt7wu/VPRn/YM6Peaabusm8K7rCXZ+m2enkjYvMJB/gR3bCPBO6WisolmQ1cg=="
+  ⚙️ type: runtime
+
+🐱 globals:
+  🔖 version: "^15.0.0"
+  📦 resolved: "https://registry.npmjs.org/globals/-/globals-^15.0.0.tgz"
+  🔒 integrity: "sha512-AEHYbO4DUrbor46XVfvorW2xkSt7wu/VPRn/YM6Peaabusm8K7rCXZ+m2enkjYvMJB/gR3bCPBO6WisolmQ1cg=="
+  ⚙️ type: runtime
+
+🐱 postcss:
+  🔖 version: "8.4.49"
+  📦 resolved: "https://registry.npmjs.org/postcss/-/postcss-8.4.49.tgz"
+  🔒 integrity: "sha512-OCVPnIObs4N29kxTjzLfUryOkvZEq+pf8jTF0lg8E7uETuWHA+v7j3c/xJmiqpX450191LlmZfUKkXxkTry7nA=="
+  ⚙️ type: runtime
+
+🐱 prettier:
+  🔖 version: "^3.1.1"
+  📦 resolved: "https://registry.npmjs.org/prettier/-/prettier-^3.1.1.tgz"
+  🔒 integrity: "sha512-AEHYbO4DUrbor46XVfvorW2xkSt7wu/VPRn/YM6Peaabusm8K7rCXZ+m2enkjYvMJB/gR3bCPBO6WisolmQ1cg=="
+  ⚙️ type: runtime
+
+🐱 prettier-plugin-svelte:
+  🔖 version: "^3.1.2"
+  📦 resolved: "https://registry.npmjs.org/prettier-plugin-svelte/-/prettier-plugin-svelte-^3.1.2.tgz"
+  🔒 integrity: "sha512-AEHYbO4DUrbor46XVfvorW2xkSt7wu/VPRn/YM6Peaabusm8K7rCXZ+m2enkjYvMJB/gR3bCPBO6WisolmQ1cg=="
+  ⚙️ type: runtime
+
+🐱 svelte:
+  🔖 version: "^4.2.7"
+  📦 resolved: "https://registry.npmjs.org/svelte/-/svelte-^4.2.7.tgz"
+  🔒 integrity: "sha512-AEHYbO4DUrbor46XVfvorW2xkSt7wu/VPRn/YM6Peaabusm8K7rCXZ+m2enkjYvMJB/gR3bCPBO6WisolmQ1cg=="
+  ⚙️ type: runtime
+
+🐱 svelte-check:
+  🔖 version: "^4.0.0"
+  📦 resolved: "https://registry.npmjs.org/svelte-check/-/svelte-check-^4.0.0.tgz"
+  🔒 integrity: "sha512-AEHYbO4DUrbor46XVfvorW2xkSt7wu/VPRn/YM6Peaabusm8K7rCXZ+m2enkjYvMJB/gR3bCPBO6WisolmQ1cg=="
+  ⚙️ type: runtime
+
+🐱 svelte-preprocess:
+  🔖 version: "^6.0.3"
+  📦 resolved: "https://registry.npmjs.org/svelte-preprocess/-/svelte-preprocess-^6.0.3.tgz"
+  🔒 integrity: "sha512-AEHYbO4DUrbor46XVfvorW2xkSt7wu/VPRn/YM6Peaabusm8K7rCXZ+m2enkjYvMJB/gR3bCPBO6WisolmQ1cg=="
+  ⚙️ type: runtime
+
+🐱 tailwindcss:
+  🔖 version: "3.4.15"
+  📦 resolved: "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.4.15.tgz"
+  🔒 integrity: "sha512-r4MeXnfBmSOuKUWmXe6h2CcyfzJCEk4F0pptO5jlnYSIViUkVmsawj80N5h2lO3gwcmSb4n3PuN+e+GC1Guylw=="
+  ⚙️ type: runtime
+
+🐱 typescript:
+  🔖 version: "^5.7.2"
+  📦 resolved: "https://registry.npmjs.org/typescript/-/typescript-^5.7.2.tgz"
+  🔒 integrity: "sha512-AEHYbO4DUrbor46XVfvorW2xkSt7wu/VPRn/YM6Peaabusm8K7rCXZ+m2enkjYvMJB/gR3bCPBO6WisolmQ1cg=="
+  ⚙️ type: runtime
+
+🐱 vite:
+  🔖 version: "^5.0.3"
+  📦 resolved: "https://registry.npmjs.org/vite/-/vite-^5.0.3.tgz"
+  🔒 integrity: "sha512-AEHYbO4DUrbor46XVfvorW2xkSt7wu/VPRn/YM6Peaabusm8K7rCXZ+m2enkjYvMJB/gR3bCPBO6WisolmQ1cg=="
+  ⚙️ type: runtime
+
+🐱 vite-plugin-tailwind-purgecss:
+  🔖 version: "0.3.3"
+  📦 resolved: "https://registry.npmjs.org/vite-plugin-tailwind-purgecss/-/vite-plugin-tailwind-purgecss-0.3.3.tgz"
+  🔒 integrity: "sha512-fsTAzcSdFKrhLxX8zTq3zaTFjk+APmJWOAy+1ujsmxkh9y8hIvM81dWEgdXK1k7suQjns+b7JsoIUkHpxLf5UA=="
+  ⚙️ type: runtime
+
