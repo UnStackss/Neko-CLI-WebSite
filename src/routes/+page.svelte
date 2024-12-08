@@ -299,6 +299,16 @@
 				/>
 			</a>
 		</div>
+		<div class="flex flex-col items-center max-w-xs">
+			<h3 class="text-sm text-primary-500 font-semibold mb-2">UnixDevelopment</h3>
+			<a href="https://discord.gg/j6Q4SQfQFd" target="_blank" class="inline-block">
+				<img
+					src="https://i.imgur.com/hYmzuDE.png"
+					alt="UnixDevelopment"
+					class="hover:opacity-80 transition-opacity duration-300 w-16 h-auto"
+				/>
+			</a>
+		</div>
 	</div>
 	<div class="mt-4 text-center become-a-sponsor">
 		<a
