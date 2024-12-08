@@ -2,10 +2,12 @@
 	import { onMount } from 'svelte';
 	import commandsHtml from './cts/commands.html?raw';
 	import welcomeHtml from './cts/welcome.html?raw';
+	import integrationsHtml from './cts/integrations.html?raw';
 
 	let docs = [
 		{ name: '👋 Welcome', content: welcomeHtml },
-		{ name: '📜 Commands', content: commandsHtml }
+		{ name: '📜 Commands', content: commandsHtml },
+		{ name: '🔌 Integrations', content: integrationsHtml }
 	];
 
 	let currentDoc = null;
