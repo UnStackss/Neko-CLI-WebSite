@@ -19,8 +19,8 @@
     // Carica i contenuti Markdown al montaggio della pagina
     onMount(async () => {
       try {
-        const welcomeResponse = await fetch('https://raw.githubusercontent.com/UnStackss/Neko-CLI-WebSite/src/routes/docs/cts/welcome.md');
-        const commandsResponse = await fetch('https://raw.githubusercontent.com/UnStackss/Neko-CLI-WebSite/src/routes/docs/cts/commands.md');
+        const welcomeResponse = await fetch('https://raw.githubusercontent.com/UnStackss/Neko-CLI-WebSite/refs/heads/main/src/routes/docs/cts/welcome.md');
+        const commandsResponse = await fetch('https://raw.githubusercontent.com/UnStackss/Neko-CLI-WebSite/refs/heads/main/src/routes/docs/cts/commands.md');
         const welcomeContent = await welcomeResponse.text();
         const commandsContent = await commandsResponse.text();
         
