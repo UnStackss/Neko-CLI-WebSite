@@ -1,97 +1,83 @@
-<script>
-    import { writable } from 'svelte/store';
-    import { onMount } from 'svelte';
+# MEOW CLI 🐾 Help Guide
 
-    // Store per l'input della ricerca
-    let searchInput = writable('');
-    let filteredDocs = writable([]);
-    let docs = [
-      { title: 'Welcome', content: '' },
-      { title: 'Commands', content: '' }
-      // altri documenti qui
-    ];
+## Overview
+MEOW CLI is a powerful command-line interface designed for modern developers. This guide provides a comprehensive overview of the available commands in MEOW CLI, allowing you to manage your projects efficiently.
 
-    // Funzione per filtrare i documenti in base all'input della ricerca
-    function filterDocs(query) {
-      filteredDocs.set(docs.filter(doc => doc.title.toLowerCase().includes(query.toLowerCase())));
-    }
+## Commands
 
-    // Carica i contenuti Markdown al montaggio della pagina
-    onMount(async () => {
-      try {
-        const welcomeResponse = await fetch('https://raw.githubusercontent.com/UnStackss/Neko-CLI-WebSite/branch/src/routes/docs/cts/welcome.md');
-        const commandsResponse = await fetch('https://raw.githubusercontent.com/UnStackss/Neko-CLI-WebSite/branch/src/routes/docs/cts/commands.md');
-        const welcomeContent = await welcomeResponse.text();
-        const commandsContent = await commandsResponse.text();
-        
-        docs[0].content = welcomeContent;
-        docs[1].content = commandsContent;
+### Project Initialization
+- **meow init [--skip (skip questions)] [-y (skip questions)]**
+  - Initialize a new project. 🌱
 
-        filteredDocs.set(docs);
-      } catch (error) {
-        console.error('Error loading Markdown files:', error);
-      }
-    });
+### Package Management
+- **meow add \<pkg1\..pkg2...\> [-g] [--dev]**
+  - Add one or more packages to your project.
+    - Use `-g` for global installation.
+    - Use `--dev` for development dependencies. 📦
+- **meow remove \<pkg1\..pkg2...\> [-g] [--dev]**
+  - Remove one or more packages from your project.
+    - Use `-g` for global removal.
+    - Use `--dev` for development dependencies. ❌
+- **meow meow**
+  - Install all dependencies specified in your project. 🐱
+- **meow all**
+  - Install all packages in the project. ⚙️
 
-    // Gestisce il click su un documento per visualizzare il contenuto
-    function handleDocumentClick(doc) {
-      filteredDocs.update(docs => docs.map(d => ({
-        ...d,
-        active: d.title === doc.title
-      })));
-    }
-</script>
+### Script Management
+- **meow flush**
+  - Run scripts using the cats framework. 🐾
+- **meow dev**
+  - Execute the development script. 🔧
 
-<style>
-    /* Stile per il layout della pagina */
-    .docs-layout {
-      display: flex;
-      min-height: 100vh;
-      background-color: #111827;
-      color: #3b82f6;
-    }
-    .sidebar {
-      width: 250px;
-      background-color: #111827;
-      color: #3b82f6;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-    }
-    .sidebar a {
-      color: #3b82f6;
-      text-decoration: none;
-      margin-bottom: 10px;
-    }
-    .sidebar a:hover {
-      text-decoration: underline;
-    }
-    .content {
-      flex: 1;
-      padding: 20px;
-      background-color: #111827;
-    }
-    .search-bar {
-      margin-bottom: 20px;
-    }
-</style>
+### Project Structure and Backup
+- **meow struct**
+  - Save the code structure to a file named `meow-structure.yml`. 🗂️
+- **meow backup**
+  - Create a backup of your project, excluding `.git` and `node_modules`. 💾
 
-<div class="docs-layout">
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <input type="text" placeholder="Search..." class="search-bar" bind:value={$searchInput} on:input={() => filterDocs($searchInput)}>
-        {#each $filteredDocs as doc}
-            <a href="#" on:click={() => handleDocumentClick(doc)}>{doc.title}</a>
-        {/each}
-    </div>
+### Dependency Analysis and Maintenance
+- **meow outdated**
+  - Check for outdated packages and update them as necessary. 🔄
+- **meow analyze**
+  - Analyze your dependencies and report the bundle size. 📊
+- **meow audit**
+  - Check for outdated versions and suggest updates. 🔍
+- **meow seccheck**
+  - Scan your project for known vulnerabilities. 🔒
+- **meow prune**
+  - Remove unnecessary dependencies and clean up unused packages. 🧹
+- **meow list**
+  - List all installed dependencies in the current project. 📜
+- **meow licenses**
+  - List all licenses for the installed packages in the current project. ⚖️
+- **meow doctor**
+  - Check for common issues in your project. 🩺
 
-    <!-- Main content area -->
-    <div class="content">
-        {#if $filteredDocs.length > 0}
-            <h2>{$filteredDocs.find(d => d.active).title}</h2>
-            <div innerHTML={$filteredDocs.find(d => d.active).content}></div>
-        {:else}
-            <p>No documents found.</p>
-        {/if}
-    </div>
-</div>
+### Binary and Package Information
+- **meow bin**
+  - Get the path to the installed binaries (e.g., Node.js). 🔍
+- **meow info \<pkg\>**
+  - Fetch detailed information about a specific package, including its name and version. 🔍
+- **meow languages**
+  - Lists detected programming languages and files in a project. 📜
+- **meow checkerrors**
+  - Detect and list errors into the code. 👾
+
+### Cleanup and Compatibility
+- **meow clean**
+  - Remove logs, backups, and unused files from your project. 🧹
+- **meow compatibility**
+  - Check the compatibility of your dependencies with Node.js. 🧑‍💻
+
+### Updates and Versioning
+- **meow update**
+  - Update MEOW CLI if a new version is available. 📈
+- **meow version**
+  - Display the current version of MEOW CLI. 🧬
+
+### Help and Support
+- **meow help**
+  - Display this help guide. ❓
+
+## Additional Resources
+For more information, visit our website: [Neko CLI](https://neko-cli.unstackss.dev)
