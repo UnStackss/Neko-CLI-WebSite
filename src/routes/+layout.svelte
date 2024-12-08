@@ -246,7 +246,7 @@
 
 						<button
 							class="bg-transparent text-white hover:bg-[#1f2937] rounded-full px-6 py-3 flex items-center gap-2 transition-all appbar-button"
-							onclick="window.open('/docs', '_blank')"
+							onclick="window.open('/docs', '_self')"
 						>
 							Docs
 							<svg
