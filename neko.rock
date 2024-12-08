@@ -1,6 +1,7 @@
 🐾 neko-cli package lock 🐾
 
 dependencies:
+
 🐱 :
   🔖 version: "babel/core"
   📦 resolved: "https://registry.npmjs.org//-/-babel/core.tgz"
@@ -228,4 +229,10 @@ dependencies:
     🔖 version: "3.7.1"
     📦 resolved: "https://registry.npmjs.org/tsparticles/-/tsparticles-3.7.1.tgz"
     🔒 integrity: "sha512-NNkOYIo01eHpDuaJxDCGgcLEMZKEJTCN/XPVCLg7VxgEWN19rjXpDnDguISxadS8GSFPws7hpGgbeDDAm3MX+Q=="
+    ⚙️ type: runtime
+
+🐱 marked:
+    🔖 version: "15.0.3"
+    📦 resolved: "https://registry.npmjs.org/marked/-/marked-15.0.3.tgz"
+    🔒 integrity: "sha512-Ai0cepvl2NHnTcO9jYDtcOEtVBNVYR31XnEA3BndO7f5As1wzpcOceSUM8FDkNLJNIODcLpDTWay/qQhqbuMvg=="
     ⚙️ type: runtime
