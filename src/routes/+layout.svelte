@@ -980,25 +980,13 @@
 
 	@media (max-width: 480px) {
 		.responsive-footer {
-			font-size: 0.7rem;
-			padding: 1.5rem 0;
-		}
-
-		.footer-text,
-		.footer-time {
-			font-size: 0.65rem;
+			display: none;
 		}
 	}
 
 	@media (max-width: 768px) {
 		.responsive-footer {
-			font-size: 0.8rem;
-			padding: 2rem 0;
-		}
-
-		.footer-text,
-		.footer-time {
-			font-size: 0.75rem;
+			display: none;
 		}
 	}
 </style>
