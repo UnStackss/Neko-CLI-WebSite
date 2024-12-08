@@ -313,12 +313,18 @@
 	<div class="mt-4 text-center become-a-sponsor">
 		<a
 			href="mailto:nekoclisupp@gmail.com?cc=thomasgarau2002@gmail.com&subject=Proposal%20Sponsor%20Neko-CLI%20x%20%5Bname%20here%5D&body=Dear...%20%5Btext%20here%5D"
-			class="inline-block bg-primary-500 text-white text-s font-semibold py-1 px-3 rounded-full hover:bg-primary-600 transition-colors duration-300"
-			style="font-family: 'Roboto', sans-serif;"
+			class="inline-block bg-gradient-to-r from-primary-500 to-primary-600 text-white text-xs font-semibold py-2 px-4 rounded-full shadow-md relative overflow-hidden transform transition-all duration-300 hover:scale-110 hover:shadow-lg"
+			style="
+				font-family: 'Roboto', sans-serif;
+				text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+			"
 		>
-			Become a Sponsor
+			<span class="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-700 opacity-0 rounded-full transition-opacity duration-500 transform scale-125 hover:opacity-20"></span>
+			<span class="relative">✨ Become a Sponsor 📢</span>
 		</a>
 	</div>
+	
+	
 </section>
 
 <style>
