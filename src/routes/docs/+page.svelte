@@ -5,11 +5,11 @@
 	let docs = [
 		{
 			name: '👋 Welcome',
-			url: 'https://raw.githubusercontent.com/UnStackss/Neko-CLI-WebSite/refs/heads/main/src/routes/docs/cts/welcome.md'
+			url: 'https://raw.githubusercontent.com/UnStackss/Neko-CLI-WebSite/refs/heads/main/src/routes/docs/cts/welcome.html'
 		},
 		{
 			name: '📜 Commands',
-			url: 'https://raw.githubusercontent.com/UnStackss/Neko-CLI-WebSite/refs/heads/main/src/routes/docs/cts/commands.md'
+			url: 'https://raw.githubusercontent.com/UnStackss/Neko-CLI-WebSite/refs/heads/main/src/routes/docs/cts/commands.html'
 		}
 	];
 
