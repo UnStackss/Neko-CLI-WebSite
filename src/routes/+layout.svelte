@@ -180,6 +180,14 @@
 		const data = await response.json();
 		version = data.version;
 	});
+
+	import { page } from '$app/stores';
+
+	let currentRoute = '';
+
+	page.subscribe((p) => {
+		currentRoute = p.url.pathname;
+	});
 </script>
 
 <div class="responsive-toast">
@@ -336,108 +344,112 @@
 			<main class="container mx-auto py-8 flex-grow relative">
 				<slot />
 
-				<div class="stepper-container responsive-page-stepper">
-					<!-- svelte-ignore a11y-missing-attribute -->
-					<Stepper
-						buttonCompleteLabel="Nothing to do 🤧"
-						buttonCompleteType="reset"
-						badge
-						active
-						stepTerm="Installation Mode"
+				{#if currentRoute !== '/docs'}
+					<div class="stepper-container responsive-page-stepper">
+						<!-- svelte-ignore a11y-missing-attribute -->
+						<Stepper
+							buttonCompleteLabel="Nothing to do 🤧"
+							buttonCompleteType="reset"
+							badge
+							active
+							stepTerm="Installation Mode"
+						>
+							<Step>
+								<svelte:fragment slot="header">Neko-CLI Installation with npm</svelte:fragment>
+								<div style="font-size: 0.75rem;">
+									<p>Click 📋NPM to copy the command, then run it in your terminal:</p>
+									<pre><code>> npm i -g neko-cli</code> <code
+											>Enter <img
+												src="https://img.icons8.com/offices/30/enter-key.png"
+												style="height: 12px; vertical-align: middle; margin-left: 6px; display: inline-block;"
+											/></code
+										></pre>
+									<p>To verify, run:</p>
+									<pre><code>> meow help</code> <code
+											>Enter <img
+												src="https://img.icons8.com/offices/30/enter-key.png"
+												style="height: 12px; vertical-align: middle; margin-left: 6px; display: inline-block;"
+											/></code
+										></pre>
+								</div>
+							</Step>
+							<Step locked={lockedState}>
+								<svelte:fragment slot="header">Neko-CLI Installation with yarn</svelte:fragment>
+								<div style="font-size: 0.75rem;">
+									<p>Click 📋YARN to copy the command, then run it in your terminal:</p>
+									<pre><code>> yarn global add neko-cli</code> <code
+											>Enter <img
+												src="https://img.icons8.com/offices/30/enter-key.png"
+												style="height: 12px; vertical-align: middle; margin-left: 6px; display: inline-block;"
+											/></code
+										></pre>
+									<p>To verify, run:</p>
+									<pre><code>> meow help</code> <code
+											>Enter <img
+												src="https://img.icons8.com/offices/30/enter-key.png"
+												style="height: 12px; vertical-align: middle; margin-left: 6px; display: inline-block;"
+											/></code
+										></pre>
+								</div>
+							</Step>
+						</Stepper>
+					</div>
+				{/if}
+
+				{#if currentRoute !== '/docs'}
+					<div
+						class="absolute responsive-page-downloads is-home-route"
+						style="top: 10%; left: 10%; transform: translate(-10%, -10%);"
 					>
-						<Step>
-							<svelte:fragment slot="header">Neko-CLI Installation with npm</svelte:fragment>
-							<div style="font-size: 0.75rem;">
-								<p>Click 📋NPM to copy the command, then run it in your terminal:</p>
-								<pre><code>> npm i -g neko-cli</code> <code
-										>Enter <img
-											src="https://img.icons8.com/offices/30/enter-key.png"
-											style="height: 12px; vertical-align: middle; margin-left: 6px; display: inline-block;"
-										/></code
-									></pre>
-								<p>To verify, run:</p>
-								<pre><code>> meow help</code> <code
-										>Enter <img
-											src="https://img.icons8.com/offices/30/enter-key.png"
-											style="height: 12px; vertical-align: middle; margin-left: 6px; display: inline-block;"
-										/></code
-									></pre>
-							</div>
-						</Step>
-						<Step locked={lockedState}>
-							<svelte:fragment slot="header">Neko-CLI Installation with yarn</svelte:fragment>
-							<div style="font-size: 0.75rem;">
-								<p>Click 📋YARN to copy the command, then run it in your terminal:</p>
-								<pre><code>> yarn global add neko-cli</code> <code
-										>Enter <img
-											src="https://img.icons8.com/offices/30/enter-key.png"
-											style="height: 12px; vertical-align: middle; margin-left: 6px; display: inline-block;"
-										/></code
-									></pre>
-								<p>To verify, run:</p>
-								<pre><code>> meow help</code> <code
-										>Enter <img
-											src="https://img.icons8.com/offices/30/enter-key.png"
-											style="height: 12px; vertical-align: middle; margin-left: 6px; display: inline-block;"
-										/></code
-									></pre>
-							</div>
-						</Step>
-					</Stepper>
-				</div>
+						<h5
+							class="text-3xl font-bold mb-8"
+							style="color: rgb(59, 130, 246); margin-left: 20%; user-select: none;"
+						>
+							downloads
+						</h5>
 
-				<div
-					class="absolute responsive-page-downloads"
-					style="top: 10%; left: 10%; transform: translate(-10%, -10%);"
-				>
-					<h5
-						class="text-3xl font-bold mb-8"
-						style="color: rgb(59, 130, 246); margin-left: 20%; user-select: none;"
-					>
-						downloads
-					</h5>
-
-					<div class="flex items-center gap-12">
-						<div class="flex flex-col items-start">
-							<p
-								class="text-lg mb-2"
-								style="user-select: none; font-family: 'Roboto', sans-serif; font-weight: bold;"
-							>
-								Weekly:
-								<span style="color: rgb(59, 130, 246);">
-									{formatNumber(weeklyDownloads)}
-								</span>
-							</p>
-							<p
-								class="text-lg mb-2"
-								style="user-select: none; font-family: 'Roboto', sans-serif; font-weight: bold;"
-							>
-								Monthly:
-								<span style="color: rgb(59, 130, 246);">
-									{formatNumber(monthlyDownloads)}
-								</span>
-							</p>
-							<p
-								class="text-lg"
-								style="user-select: none; font-family: 'Roboto', sans-serif; font-weight: bold;"
-							>
-								Yearly:
-								<span style="color: rgb(59, 130, 246);">
-									{formatNumber(yearlyDownloads)}
-								</span>
-							</p>
-						</div>
-
-						<!-- Chart Section -->
-						<div style="user-select: none;">
-							<ConicGradient stops={conicStops} legend>
-								<span slot="caption" class="text-sm" style="color: rgb(59, 130, 246);"
-									>Download Distribution</span
+						<div class="flex items-center gap-12">
+							<div class="flex flex-col items-start">
+								<p
+									class="text-lg mb-2"
+									style="user-select: none; font-family: 'Roboto', sans-serif; font-weight: bold;"
 								>
-							</ConicGradient>
+									Weekly:
+									<span style="color: rgb(59, 130, 246);">
+										{formatNumber(weeklyDownloads)}
+									</span>
+								</p>
+								<p
+									class="text-lg mb-2"
+									style="user-select: none; font-family: 'Roboto', sans-serif; font-weight: bold;"
+								>
+									Monthly:
+									<span style="color: rgb(59, 130, 246);">
+										{formatNumber(monthlyDownloads)}
+									</span>
+								</p>
+								<p
+									class="text-lg"
+									style="user-select: none; font-family: 'Roboto', sans-serif; font-weight: bold;"
+								>
+									Yearly:
+									<span style="color: rgb(59, 130, 246);">
+										{formatNumber(yearlyDownloads)}
+									</span>
+								</p>
+							</div>
+
+							<!-- Chart Section -->
+							<div style="user-select: none;">
+								<ConicGradient stops={conicStops} legend>
+									<span slot="caption" class="text-sm" style="color: rgb(59, 130, 246);"
+										>Download Distribution</span
+									>
+								</ConicGradient>
+							</div>
 						</div>
 					</div>
-				</div>
+				{/if}
 
 				<style>
 					.stepper-container {

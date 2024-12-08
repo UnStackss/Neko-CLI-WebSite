@@ -9,15 +9,18 @@ const config = {
 		vitePreprocess(),
 		sveltePreprocess({
 			babel: {
-				plugins: ['@babel/plugin-transform-react-jsx'],
-			  },
-			  typescript: true,
-		}),
+				plugins: ['@babel/plugin-transform-react-jsx']
+			},
+			typescript: true
+		})
 	],
 
 	kit: {
 		adapter: adapter(),
-	},
+		files: {
+			routes: 'src/routes'
+		  }
+	}
 };
 
 export default config;
