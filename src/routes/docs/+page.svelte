@@ -1,32 +1,19 @@
 <script>
 	import { onMount } from 'svelte';
-	import { marked } from 'marked';
+	import commandsHtml from './cts/commands.html?raw';
+	import welcomeHtml from './cts/welcome.html?raw';
 
 	let docs = [
-		{
-			name: '👋 Welcome',
-			url: 'https://raw.githubusercontent.com/UnStackss/Neko-CLI-WebSite/refs/heads/main/src/routes/docs/cts/welcome.html'
-		},
-		{
-			name: '📜 Commands',
-			url: 'https://raw.githubusercontent.com/UnStackss/Neko-CLI-WebSite/refs/heads/main/src/routes/docs/cts/commands.html'
-		}
+		{ name: '👋 Welcome', content: welcomeHtml },
+		{ name: '📜 Commands', content: commandsHtml }
 	];
 
 	let currentDoc = null;
 	let currentDocContent = '';
 
-	async function fetchMarkdown(url) {
-		const response = await fetch(url);
-		const text = await response.text();
-		return marked(text);
-	}
-
 	function selectDoc(doc) {
 		currentDoc = doc;
-		fetchMarkdown(doc.url).then((html) => {
-			currentDocContent = html;
-		});
+		currentDocContent = doc.content;
 	}
 
 	onMount(() => {
@@ -37,21 +24,20 @@
 </script>
 
 <div class="container">
+	<article class="prose prose-invert">
+		{@html currentDocContent}
+	</article>
 	<div class="sidebar">
 		{#each docs as doc}
 			<button on:click={() => selectDoc(doc)}>{doc.name}</button>
 		{/each}
-	</div>
-	<div class="content-panel">
-		<div class="markdown-content">
-			{@html currentDocContent}
-		</div>
 	</div>
 </div>
 
 <style>
 	.container {
 		display: flex;
+		flex-direction: row;
 		background-color: #111827;
 		color: #3b82f6;
 		padding: 1rem;
@@ -60,17 +46,15 @@
 	}
 
 	.sidebar {
-		position: fixed;
-		width: 18%;
-		max-width: 200px;
-		min-width: 180px;
-		height: 700px;
+		position: sticky;
+		width: 200px;
+		height: fit-content;
 		padding: 1rem;
 		background-color: #111827;
 		overflow-y: auto;
 		border-radius: 8px;
-		right: 0.5%;
 		overflow: hidden;
+		top: 0;
 	}
 
 	.sidebar button {
@@ -100,22 +84,10 @@
 		background: #2d3748;
 	}
 
-	.content-panel {
-		flex-grow: 1;
-		margin-left: 0.2rem;
-		padding: 1.5rem;
-		background-color: #111827;
-		color: #e5e7eb;
-		height: 700px;
-		border-radius: 8px;
-		max-width: 1490px;
-		overflow-y: auto;
-	}
-
-	.markdown-content {
-		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-		line-height: 1.6;
-		font-size: 1rem;
-		color: #e5e7eb;
+	.prose {
+		width: 100%;
+		max-width: none;
+		overflow: auto;
+		max-height: calc(100vh - 12rem);
 	}
 </style>
