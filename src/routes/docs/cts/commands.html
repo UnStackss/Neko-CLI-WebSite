@@ -1,81 +1,109 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEOW CLI 🐾 Help Guide</title>
-</head>
-<body>
-    <h1>MEOW CLI 🐾 Help Guide</h1>
+<h1>MEOW CLI 🐾 Help Guide</h1>
 
-    <h2>Overview</h2>
-    <p>MEOW CLI is a powerful command-line interface designed for modern developers. This guide provides a comprehensive overview of the available commands in MEOW CLI, allowing you to manage your projects efficiently.</p>
+<h2>Overview</h2>
+<p>
+	MEOW CLI is a powerful command-line interface designed for modern developers. This guide provides
+	a comprehensive overview of the available commands in MEOW CLI, allowing you to manage your
+	projects efficiently.
+</p>
 
-    <h2>Commands</h2>
+<h2>Commands</h2>
 
-    <h3>Project Initialization</h3>
-    <ul>
-        <li><strong>meow init [--skip (skip questions)] [-y (skip questions)]</strong> - Initialize a new project. 🌱</li>
-    </ul>
+<h3>Project Initialization</h3>
+<ul>
+	<li>
+		<strong>meow init [--skip (skip questions)] [-y (skip questions)]</strong> - Initialize a new
+		project. 🌱
+	</li>
+</ul>
 
-    <h3>Package Management</h3>
-    <ul>
-        <li><strong>meow add &lt;pkg1..pkg2...&gt; [-g] [--dev]</strong> - Add one or more packages to your project. Use `-g` for global installation. Use `--dev` for development dependencies. 📦</li>
-        <li><strong>meow remove &lt;pkg1..pkg2...&gt; [-g] [--dev]</strong> - Remove one or more packages from your project. Use `-g` for global removal. Use `--dev` for development dependencies. ❌</li>
-        <li><strong>meow meow</strong> - Install all dependencies specified in your project. 🐱</li>
-        <li><strong>meow all</strong> - Install all packages in the project. ⚙️</li>
-    </ul>
+<h3>Package Management</h3>
+<ul>
+	<li>
+		<strong>meow add &lt;pkg1..pkg2...&gt; [-g] [--dev]</strong> - Add one or more packages to your
+		project. Use `-g` for global installation. Use `--dev` for development dependencies. 📦
+	</li>
+	<li>
+		<strong>meow remove &lt;pkg1..pkg2...&gt; [-g] [--dev]</strong> - Remove one or more packages
+		from your project. Use `-g` for global removal. Use `--dev` for development dependencies. ❌
+	</li>
+	<li><strong>meow meow</strong> - Install all dependencies specified in your project. 🐱</li>
+	<li><strong>meow all</strong> - Install all packages in the project. ⚙️</li>
+</ul>
 
-    <h3>Script Management</h3>
-    <ul>
-        <li><strong>meow flush</strong> - Run scripts using the cats framework. 🐾</li>
-        <li><strong>meow dev</strong> - Execute the development script. 🔧</li>
-    </ul>
+<h3>Script Management</h3>
+<ul>
+	<li><strong>meow flush</strong> - Run scripts using the cats framework. 🐾</li>
+	<li><strong>meow dev</strong> - Execute the development script. 🔧</li>
+</ul>
 
-    <h3>Project Structure and Backup</h3>
-    <ul>
-        <li><strong>meow struct</strong> - Save the code structure to a file named `meow-structure.yml`. 🗂️</li>
-        <li><strong>meow backup</strong> - Create a backup of your project, excluding `.git` and `node_modules`. 💾</li>
-    </ul>
+<h3>Project Structure and Backup</h3>
+<ul>
+	<li>
+		<strong>meow struct</strong> - Save the code structure to a file named `meow-structure.yml`. 🗂️
+	</li>
+	<li>
+		<strong>meow backup</strong> - Create a backup of your project, excluding `.git` and
+		`node_modules`. 💾
+	</li>
+</ul>
 
-    <h3>Dependency Analysis and Maintenance</h3>
-    <ul>
-        <li><strong>meow outdated</strong> - Check for outdated packages and update them as necessary. 🔄</li>
-        <li><strong>meow analyze</strong> - Analyze your dependencies and report the bundle size. 📊</li>
-        <li><strong>meow audit</strong> - Check for outdated versions and suggest updates. 🔍</li>
-        <li><strong>meow seccheck</strong> - Scan your project for known vulnerabilities. 🔒</li>
-        <li><strong>meow prune</strong> - Remove unnecessary dependencies and clean up unused packages. 🧹</li>
-        <li><strong>meow list</strong> - List all installed dependencies in the current project. 📜</li>
-        <li><strong>meow licenses</strong> - List all licenses for the installed packages in the current project. ⚖️</li>
-        <li><strong>meow doctor</strong> - Check for common issues in your project. 🩺</li>
-    </ul>
+<h3>Dependency Analysis and Maintenance</h3>
+<ul>
+	<li>
+		<strong>meow outdated</strong> - Check for outdated packages and update them as necessary. 🔄
+	</li>
+	<li><strong>meow analyze</strong> - Analyze your dependencies and report the bundle size. 📊</li>
+	<li><strong>meow audit</strong> - Check for outdated versions and suggest updates. 🔍</li>
+	<li><strong>meow seccheck</strong> - Scan your project for known vulnerabilities. 🔒</li>
+	<li>
+		<strong>meow prune</strong> - Remove unnecessary dependencies and clean up unused packages. 🧹
+	</li>
+	<li><strong>meow list</strong> - List all installed dependencies in the current project. 📜</li>
+	<li>
+		<strong>meow licenses</strong> - List all licenses for the installed packages in the current
+		project. ⚖️
+	</li>
+	<li><strong>meow doctor</strong> - Check for common issues in your project. 🩺</li>
+</ul>
 
-    <h3>Binary and Package Information</h3>
-    <ul>
-        <li><strong>meow bin</strong> - Get the path to the installed binaries (e.g., Node.js). 🔍</li>
-        <li><strong>meow info &lt;pkg&gt;</strong> - Fetch detailed information about a specific package, including its name and version. 🔍</li>
-        <li><strong>meow languages</strong> - Lists detected programming languages and files in a project. 📜</li>
-        <li><strong>meow checkerrors</strong> - Detect and list errors into the code. 👾</li>
-    </ul>
+<h3>Binary and Package Information</h3>
+<ul>
+	<li><strong>meow bin</strong> - Get the path to the installed binaries (e.g., Node.js). 🔍</li>
+	<li>
+		<strong>meow info &lt;pkg&gt;</strong> - Fetch detailed information about a specific package,
+		including its name and version. 🔍
+	</li>
+	<li>
+		<strong>meow languages</strong> - Lists detected programming languages and files in a project.
+		📜
+	</li>
+	<li><strong>meow checkerrors</strong> - Detect and list errors into the code. 👾</li>
+</ul>
 
-    <h3>Cleanup and Compatibility</h3>
-    <ul>
-        <li><strong>meow clean</strong> - Remove logs, backups, and unused files from your project. 🧹</li>
-        <li><strong>meow compatibility</strong> - Check the compatibility of your dependencies with Node.js. 🧑‍💻</li>
-    </ul>
+<h3>Cleanup and Compatibility</h3>
+<ul>
+	<li>
+		<strong>meow clean</strong> - Remove logs, backups, and unused files from your project. 🧹
+	</li>
+	<li>
+		<strong>meow compatibility</strong> - Check the compatibility of your dependencies with Node.js.
+		🧑‍💻
+	</li>
+</ul>
 
-    <h3>Updates and Versioning</h3>
-    <ul>
-        <li><strong>meow update</strong> - Update MEOW CLI if a new version is available. 📈</li>
-        <li><strong>meow version</strong> - Display the current version of MEOW CLI. 🧬</li>
-    </ul>
+<h3>Updates and Versioning</h3>
+<ul>
+	<li><strong>meow update</strong> - Update MEOW CLI if a new version is available. 📈</li>
+	<li><strong>meow version</strong> - Display the current version of MEOW CLI. 🧬</li>
+</ul>
 
-    <h3>Help and Support</h3>
-    <ul>
-        <li><strong>meow help</strong> - Display this help guide. ❓</li>
-    </ul>
+<h3>Help and Support</h3>
+<ul>
+	<li><strong>meow help</strong> - Display this help guide. ❓</li>
+</ul>
 
-    <h2>Additional Resources</h2>
-    <p>For more information, visit our website: <a href="https://neko-cli.unstackss.dev">Neko CLI</a></p>
-</body>
-</html>
+<h2>Additional Resources</h2>
+<p>
+	For more information, visit our website: <a href="https://neko-cli.unstackss.dev">Neko CLI</a>
+</p>
