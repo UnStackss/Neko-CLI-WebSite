@@ -512,19 +512,66 @@
 			</main>
 
 			<footer class="bg-dark-800 py-4 text-center relative responsive-footer">
-				<p class="footer-text">© {time.getFullYear()} Neko-CLI. All rights reserved. ❤️</p>
-				<p class="footer-time">
-					Time: {time.getHours().toString().padStart(2, '0')}h:{time
-						.getMinutes()
-						.toString()
-						.padStart(2, '0')}m:{time.getSeconds().toString().padStart(2, '0')}s {timezone}
-				</p>
+				<div class="footer-content">
+					<p class="footer-text">
+						© <a
+							href="https://app.copyrighted.com/website/Wp4Pu4gJh3O2ZRiC"
+							target="_blank"
+							class="copyright-link">Neko-CLI</a
+						>
+						. All rights reserved. ❤️
+						<span class="footer-id">(ID) <u>MZSFLUH3</u></span>
+					</p>
+
+					<p class="footer-time">
+						Time: {time.getHours().toString().padStart(2, '0')}h:{time
+							.getMinutes()
+							.toString()
+							.padStart(2, '0')}m:{time.getSeconds().toString().padStart(2, '0')}s {timezone}
+						<span style="margin-left: 5px;">
+							<img
+								src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAs0lEQVR4nGNgGAWDBtjXvxewavq6yLrp60frpm//ycNfP4LMMO54x49hAcRwcg3+hoKtGr8uxLAA5nLL+h8a5IaCedMPTbAljd8+YLEAYju5hhM0Z1BaYN349Sg0zA/TxoImRMTSxAKrxq+HocnzEE0swAYGjwVWUO9bQSMQF5/sSEYPXyuc/METB1/BRQUou5NruE39Dy2cRQXNCzvjjnf8IAmKiuvGbx9AZmAtrkfBgAEAz8SjXHec7QAAAAAASUVORK5CYII="
+								alt="bank-card-back-side"
+								style="width: 14px; height: 14px; margin-right: 3px; display: inline-block;"
+							/>
+							<img
+								src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAACPklEQVR4nN1UPWgVQRB+RhRsLBTEQmwUC0UQfx53u6dBRBBtbGwUFLGyFkml+2YuBJtYSCyCpLAQMQRsFB4oKBZip4gIEWIhaCEKCe9mTiVxZe92X87c3uW9WJmFKW5uZr75vpndRmPVHqGSfRLovUTW1UY/JfJriXy+fwCgZ/XFS3at5+KBmt0kgOZNokB6LoBu+EwijQqgTxkA0K+mom09AUjks64zAenRjNEwHRRAH2pZAM9K5KlApTuXk+eeSzgwrtfloPSyZ7mAv4k43eEtfmZSr5XI3/Pu6YHxDapkq0RasJI9XSLTi0LhxxLot5Xsvl+emKNuQosvGF/YSi8uSsbh32z5ofV/aWi9xjTlWFTJM2JXcCFUnS12JlO2yNeG0gMutqn0Rok0Z9netfkTtQAS+G0uBb8y37uVXu+KmHsRIQ8ZE8DX7R2w8qTHMwCkGetrl4sr3r50r0NIjy03VIE8aWLN9hT8V8ryxHTZBRxWyX7L6Ka3KNC8QJo2bAzLvHu+6v4H2NlbZoD8yAZ8NgOzlKet/u9cnCkoWnzOyWUlGxNIqY194/K7JxjVGyQQ2wHdMb5I/dhVkEEVGmlXy0VpBDxY6j6E5JQLipBOZwDIQ4vJnT1ZXMxHam5xOximpnd7BPLtQhdxRhutPEgz3TjgMff2HBqZ2+wt5gUA+lhz9W9lQUoPmAtVuYYrfZ6jODlRkqeVXuoLwAM4URxwvin0ZEXy+AG6UmiP9SeP71Q/z0QCk5P/DPDfnD+Hp79Fq0Hl7gAAAABJRU5ErkJggg=="
+								alt="paypal"
+								style="width: 14px; height: 14px; margin-right: 3px; display: inline-block;"
+							/>
+							<img
+								src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAACRElEQVR4nN1VTU8UQRBdMXrUf+BXPHklEexa/QsaFP0FBJW7Xkxmq+aCgph4867GCJh458jJq6AgmngFDBDcqkmM7Jjqme5pd2eYifFEJ5VMqjtV9d6rqmm1jvS5FKUnTUfuGOLXgLxmkLtq9lt9JLf1zT8FN8g3DfE3IEkPNeSvQDzWOPD42/S4QZ4NgxiUHUCZB+KngDIHJAuGZPevN8QzrSgdalJ5GHzTdLoTwy/SE8PTO6cNygqQfNRv9UHMkwZlK0DzpJaWoOoViOSMu7sSyzV3p9+B/6whXnV3beIb1YIWnG+64Ab5FRAf9PH+C0g+uEQjUXLOkGxn97xRKrx2i6++050IUP2uElg7qh0lF/J3dz0KlPHBBFnbWUGVX+cH5F4u4rJBnrZG8sz7UR44BgBlL0fxsizBegZf5kM/lCQAlOfeH/O9Aq0s5hSuDSQA5P0c9mxZAiifgd5olFz0b7WNM//+/0lAFvH7Rgk8RSQLpQmQO+EwAvGbnLqkiCHvKinyIpPshm0GhQZLbZKHaoDyCJC/54i/NBJZF5eHHfNkAPvgUIpintJ3beT7fhCJbw0kyCrQxWVbb0sn1CPr1wG5ZynV4Gl67GqcnAeUH27QwjbvQ8FjwfJa1QmtWxVZcP4UDN/10uCBFjNFEtnWCVV0uuB00aldjtJT6rO0+Mpt9Y9btSdKh3Qr9rXinh0iXdUoc7ZbvKBB8Cbr2h3dispn7Q+HeKOWlqqjYuni0rYD4s+G+KeafqtPu6VS0CNz/gCC19RkGX9stgAAAABJRU5ErkJggg=="
+								alt="bitcoin"
+								style="width: 14px; height: 14px; display: inline-block;"
+							/>
+						</span>
+					</p>
+				</div>
 			</footer>
+			<style>
+				.footer-text {
+					font-size: 0.8em;
+					text-align: center;
+				}
+
+				.copyright-link {
+					color: #3b82f6;
+					text-decoration: none;
+				}
+
+				.footer-id {
+					font-size: 0.8em;
+				}
+
+				.footer-id u {
+					text-decoration: underline;
+				}
+			</style>
 
 			<style>
 				.bg-dark-800 {
 					background-color: #111827;
-					color: #ffffff;
+					color: #3b82f6;
 					user-select: none;
 				}
 				footer {
