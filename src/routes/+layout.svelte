@@ -25,12 +25,10 @@
 	import { text } from '@sveltejs/kit';
 
 	let conicStops = [
-		{ label: 'Weekly', color: 'rgba(59, 130, 246, 1)', start: 0, end: 10 },
 		{ label: 'Monthly', color: 'rgba(59, 130, 246, 0.6)', start: 10, end: 35 },
 		{ label: 'Yearly', color: 'rgba(59, 130, 246, 0.3)', start: 35, end: 100 }
 	];
 
-	let weeklyDownloads = 0;
 	let monthlyDownloads = 0;
 	let yearlyDownloads = 0;
 
@@ -42,9 +40,6 @@
 
 	async function fetchDownloadData() {
 		try {
-			const weekly = await fetch('https://api.npmjs.org/downloads/point/last-week/neko-cli').then(
-				(res) => res.json()
-			);
 			const monthly = await fetch('https://api.npmjs.org/downloads/point/last-month/neko-cli').then(
 				(res) => res.json()
 			);
@@ -52,35 +47,37 @@
 				(res) => res.json()
 			);
 
-			weeklyDownloads = weekly.downloads || 0;
 			monthlyDownloads = monthly.downloads || 0;
 			yearlyDownloads = yearly.downloads || 0;
 
-			const totalDownloads = weeklyDownloads + monthlyDownloads + yearlyDownloads;
+			const totalDownloads = monthlyDownloads + yearlyDownloads;
 
 			conicStops = [
 				{
-					label: 'Weekly',
-					color: 'rgba(59, 130, 246, 1)',
-					start: 0,
-					end: (weeklyDownloads / totalDownloads) * 100
-				},
-				{
 					label: 'Monthly',
 					color: 'rgba(59, 130, 246, 0.6)',
-					start: (weeklyDownloads / totalDownloads) * 100,
-					end: ((weeklyDownloads + monthlyDownloads) / totalDownloads) * 100
+					start: 0,
+					end: (monthlyDownloads / totalDownloads) * 100
 				},
 				{
 					label: 'Yearly',
 					color: 'rgba(59, 130, 246, 0.3)',
-					start: ((weeklyDownloads + monthlyDownloads) / totalDownloads) * 100,
+					start: (monthlyDownloads / totalDownloads) * 100,
 					end: 100
 				}
 			];
+
+			animatePieChart();
 		} catch (error) {
 			console.error('Failed to fetch download data:', error);
 		}
+	}
+
+	function animatePieChart() {
+		const pieChart = document.querySelector('.pie-chart');
+		pieChart.style.transition = 'all 1s ease-out';
+		pieChart.style.strokeDasharray = `${conicStops[0].end} 100`;
+		pieChart.style.strokeDashoffset = '0';
 	}
 
 	onMount(() => {
@@ -410,15 +407,6 @@
 
 						<div class="flex items-center gap-12">
 							<div class="flex flex-col items-start">
-								<p
-									class="text-lg mb-2"
-									style="user-select: none; font-family: 'Roboto', sans-serif; font-weight: bold;"
-								>
-									Weekly:
-									<span style="color: rgb(59, 130, 246);">
-										{formatNumber(weeklyDownloads)}
-									</span>
-								</p>
 								<p
 									class="text-lg mb-2"
 									style="user-select: none; font-family: 'Roboto', sans-serif; font-weight: bold;"
