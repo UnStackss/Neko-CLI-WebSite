@@ -222,7 +222,7 @@
 			<header class="bg-dark-800 py-4 appbar">
 				<div class="container mx-auto flex justify-between items-center">
 					<a href="/" class="flex items-center gap-2 flex-shrink-0 relative">
-						<img src="https://i.imgur.com/EjscrL8.png" alt="Neko-CLI Logo" class="w-12 h-12" />
+						<img src="https://i.imgur.com/64qWofg.png" alt="Neko-CLI Logo" class="w-12 h-12" />
 						<span class="text-2xl font-bold text-primary-500">Neko-CLI</span>
 						<span class="text-sm font-bold absolute bottom-[-4px] right-[63px] text-[#3b82f6]"
 							>v{version}</span
